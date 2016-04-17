@@ -10,10 +10,10 @@ doge.
 
 ## Features
 * There are 3 minigames in which the user will play.
-    * Ball will fall from the top of the screen, and the player must keep the
+    * Balls will fall from the top of the screen, and the player must keep the
       balls from falling to the groud by tilting the iPhone right/left.
     * Doges will appear at the top of the screen and the player must throw the
-      frisbee to the dog by flicking the frisbee towards the doge.
+      frisbee to the Doge by flicking the frisbee towards the Doge.
     * There will be Doges and Grumpy cats displayed on the screen and the player
       must avoid the Grumpy Cats by tapping the Doges in sight
 * Show score and keep track of high scores
