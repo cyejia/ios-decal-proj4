@@ -5,29 +5,35 @@
 * Christine Chen
 
 ## Purpose
-This is an app that challenges users to multitask by playing games with doge.
+This is an app that challenges users to multitask by playing rotating games with
+doge.
 
 ## Features
 * There are 3 minigames in which the user will play.
-    * Keep balls bouncing using tilt
-    * Flick the frisbee to your dog
-    * Avoid the Grumpy Cats
+    * Ball will fall from the top of the screen, and the player must keep the
+      balls from falling to the groud by tilting the iPhone right/left.
+    * Doges will appear at the top of the screen and the player must throw the
+      frisbee to the dog by flicking the frisbee towards the doge.
+    * There will be Doges and Grumpy cats displayed on the screen and the player
+      must avoid the Grumpy Cats by tapping the Doges in sight
 * Show score and keep track of high scores
 
 ## Control Flow
 * The user will choose "New Game" and then will move to the game screen.
 * The first game will begin, and the user will play for a limited time
-* After the initial time expires, another minigame will be added to the screen
-* This continues until all minigames are being played at once
+* After the initial time expires, another minigame will be rotated to the screen
+* This rotation continues, with each cycle making each game more difficult
 * The player loses if at any point if they lose in any of the minigames:
     1. A ball falls
     2. Frisbee misses dog
     3. Touch grumpy cat/run out of time moving forward
 * Games get harder as player progresses
-    1. More balls appear
-    2. Doge starts moving
-    3. Less time to pick tile
-* When player loses, goes to score/high score view
+    1. More balls fall from the top of the screen
+    2. Doge starts moving back and forth so the player must plan the frisbee
+       throw accordingly
+    3. Less time to pick the Doge tile
+* When player loses, an alert pops up prompting the player to give information
+for the high score board and then the screen goes to score/high score view
 
 ## Implementation
 
