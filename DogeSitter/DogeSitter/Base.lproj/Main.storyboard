@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="CJ0-sf-sim">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <scenes>
+        <!--Game View Controller-->
+        <scene sceneID="tXr-a1-R10">
+            <objects>
+                <viewController id="BV1-FR-VrT" customClass="GameViewController" customModule="DogeSitter" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="8aa-yV-Osq"/>
+                        <viewControllerLayoutGuide type="bottom" id="qHh-Mt-9TT"/>
+                    </layoutGuides>
+                    <view key="view" multipleTouchEnabled="YES" contentMode="scaleToFill" id="3se-qz-xqx" customClass="SKView">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+        <!--Dont Touch The Grumpy Cat View Controller-->
+        <scene sceneID="dv8-Mn-a0N">
+            <objects>
+                <viewController id="CJ0-sf-sim" customClass="DontTouchTheGrumpyCatViewController" customModule="DogeSitter" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="tyX-H3-Hd5"/>
+                        <viewControllerLayoutGuide type="bottom" id="Oys-VL-ahN"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="H3L-hM-swY">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Faq-II-30Y">
+                                <rect key="frame" x="0.0" y="552" width="105" height="184"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" image="GrumpyCat"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Aj-CX-jjE">
+                                <rect key="frame" x="104" y="552" width="104" height="184"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" image="Doge"/>
+                                <connections>
+                                    <action selector="moveDogeDown:" destination="CJ0-sf-sim" eventType="touchUpInside" id="zAV-wM-NkO"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YuR-1a-bWa">
+                                <rect key="frame" x="208" y="552" width="104" height="184"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" image="GrumpyCat"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bEd-0U-8pz">
+                                <rect key="frame" x="312" y="552" width="104" height="184"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" image="GrumpyCat"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LQa-2T-gO5">
+                                <rect key="frame" x="0.0" y="-184" width="104" height="184"/>
+                                <state key="normal" image="GrumpyCat"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cuh-fh-aBp">
+                                <rect key="frame" x="104" y="-184" width="104" height="184"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" image="Doge"/>
+                                <connections>
+                                    <action selector="moveDogeDown:" destination="CJ0-sf-sim" eventType="touchUpInside" id="GdT-fv-t35"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F3Z-M3-4pI">
+                                <rect key="frame" x="208" y="-184" width="104" height="184"/>
+                                <state key="normal" image="GrumpyCat"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2lJ-eb-zKB">
+                                <rect key="frame" x="312" y="-184" width="104" height="184"/>
+                                <state key="normal" image="GrumpyCat"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DJY-yM-203">
+                                <rect key="frame" x="0.0" y="368" width="104" height="184"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" image="GrumpyCat"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nry-S2-d3y">
+                                <rect key="frame" x="104" y="368" width="104" height="184"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" image="Doge"/>
+                                <connections>
+                                    <action selector="moveDogeDown:" destination="CJ0-sf-sim" eventType="touchUpInside" id="kbO-qm-ubL"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vQs-lu-Jur">
+                                <rect key="frame" x="208" y="368" width="104" height="184"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" image="GrumpyCat"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ltB-2g-M0j">
+                                <rect key="frame" x="312" y="368" width="104" height="184"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" image="GrumpyCat"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bRQ-df-CY8">
+                                <rect key="frame" x="0.0" y="184" width="104" height="184"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" image="GrumpyCat"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A3z-6J-LdR">
+                                <rect key="frame" x="104" y="184" width="104" height="184"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" image="Doge"/>
+                                <connections>
+                                    <action selector="moveDogeDown:" destination="CJ0-sf-sim" eventType="touchUpInside" id="K1L-Eo-jMH"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sgm-aI-cTT">
+                                <rect key="frame" x="312" y="184" width="104" height="184"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" image="GrumpyCat"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YFj-Zv-48D">
+                                <rect key="frame" x="0.0" y="0.0" width="104" height="184"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" image="GrumpyCat"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i73-Ja-wdh">
+                                <rect key="frame" x="104" y="0.0" width="104" height="184"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" image="Doge"/>
+                                <connections>
+                                    <action selector="moveDogeDown:" destination="CJ0-sf-sim" eventType="touchUpInside" id="hvS-Lm-kGo"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hwf-vj-aIB">
+                                <rect key="frame" x="208" y="0.0" width="104" height="184"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" image="GrumpyCat"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cKU-c3-gMj">
+                                <rect key="frame" x="312" y="0.0" width="104" height="184"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" image="GrumpyCat"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uu7-hF-cGM">
+                                <rect key="frame" x="208" y="184" width="104" height="184"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" image="GrumpyCat"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
+                    <connections>
+                        <outlet property="DogeButton0" destination="cuh-fh-aBp" id="SCL-Sn-Aqq"/>
+                        <outlet property="DogeButton1" destination="i73-Ja-wdh" id="WKy-eE-uI3"/>
+                        <outlet property="DogeButton2" destination="A3z-6J-LdR" id="obY-CA-EIV"/>
+                        <outlet property="DogeButton3" destination="Nry-S2-d3y" id="RaD-eh-aJF"/>
+                        <outlet property="DogeButton4" destination="0Aj-CX-jjE" id="8TQ-qw-7CU"/>
+                        <outlet property="GrumpyButton01" destination="LQa-2T-gO5" id="rm5-3n-Ipb"/>
+                        <outlet property="GrumpyButton02" destination="F3Z-M3-4pI" id="aeI-Vu-M2T"/>
+                        <outlet property="GrumpyButton03" destination="2lJ-eb-zKB" id="N54-a0-oDB"/>
+                        <outlet property="GrumpyButton1" destination="YFj-Zv-48D" id="E0n-Hh-5Rv"/>
+                        <outlet property="GrumpyButton10" destination="Faq-II-30Y" id="od6-DX-yrR"/>
+                        <outlet property="GrumpyButton11" destination="YuR-1a-bWa" id="ptw-M3-2Jo"/>
+                        <outlet property="GrumpyButton12" destination="bEd-0U-8pz" id="32e-1M-PrQ"/>
+                        <outlet property="GrumpyButton2" destination="Hwf-vj-aIB" id="FSH-4f-f0w"/>
+                        <outlet property="GrumpyButton3" destination="cKU-c3-gMj" id="uah-Oa-Xo6"/>
+                        <outlet property="GrumpyButton4" destination="bRQ-df-CY8" id="Jwk-Yf-g09"/>
+                        <outlet property="GrumpyButton5" destination="uu7-hF-cGM" id="ZTr-sM-W1R"/>
+                        <outlet property="GrumpyButton6" destination="sgm-aI-cTT" id="DHS-eg-O44"/>
+                        <outlet property="GrumpyButton7" destination="DJY-yM-203" id="abz-PS-UFA"/>
+                        <outlet property="GrumpyButton8" destination="vQs-lu-Jur" id="CiT-1Q-IQl"/>
+                        <outlet property="GrumpyButton9" destination="ltB-2g-M0j" id="Bip-wF-ney"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iWh-N4-G2m" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="944" y="385"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Doge" width="104" height="184"/>
+        <image name="GrumpyCat" width="104" height="184"/>
+    </resources>
+</document>
