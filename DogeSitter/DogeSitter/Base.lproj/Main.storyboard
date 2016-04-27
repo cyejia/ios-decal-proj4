@@ -35,10 +35,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Faq-II-30Y">
+                            <button opaque="NO" tag="12" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Faq-II-30Y">
                                 <rect key="frame" x="0.0" y="552" width="105" height="184"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" image="GrumpyCat"/>
+                                <connections>
+                                    <action selector="touchedAGrumpyCat:" destination="CJ0-sf-sim" eventType="touchUpInside" id="ZOa-g7-JHK"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Aj-CX-jjE">
                                 <rect key="frame" x="104" y="552" width="104" height="184"/>
@@ -48,19 +51,28 @@
                                     <action selector="moveDogeDown:" destination="CJ0-sf-sim" eventType="touchUpInside" id="zAV-wM-NkO"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YuR-1a-bWa">
+                            <button opaque="NO" tag="13" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YuR-1a-bWa">
                                 <rect key="frame" x="208" y="552" width="104" height="184"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" image="GrumpyCat"/>
+                                <connections>
+                                    <action selector="touchedAGrumpyCat:" destination="CJ0-sf-sim" eventType="touchUpInside" id="myI-rt-YYw"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bEd-0U-8pz">
+                            <button opaque="NO" tag="14" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bEd-0U-8pz">
                                 <rect key="frame" x="312" y="552" width="104" height="184"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" image="GrumpyCat"/>
+                                <connections>
+                                    <action selector="touchedAGrumpyCat:" destination="CJ0-sf-sim" eventType="touchUpInside" id="JZo-Re-1yl"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LQa-2T-gO5">
                                 <rect key="frame" x="0.0" y="-184" width="104" height="184"/>
                                 <state key="normal" image="GrumpyCat"/>
+                                <connections>
+                                    <action selector="touchedAGrumpyCat:" destination="CJ0-sf-sim" eventType="touchUpInside" id="v3J-Ul-DD3"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cuh-fh-aBp">
                                 <rect key="frame" x="104" y="-184" width="104" height="184"/>
@@ -70,18 +82,27 @@
                                     <action selector="moveDogeDown:" destination="CJ0-sf-sim" eventType="touchUpInside" id="GdT-fv-t35"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F3Z-M3-4pI">
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F3Z-M3-4pI">
                                 <rect key="frame" x="208" y="-184" width="104" height="184"/>
                                 <state key="normal" image="GrumpyCat"/>
+                                <connections>
+                                    <action selector="touchedAGrumpyCat:" destination="CJ0-sf-sim" eventType="touchUpInside" id="NOa-Op-Yb0"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2lJ-eb-zKB">
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2lJ-eb-zKB">
                                 <rect key="frame" x="312" y="-184" width="104" height="184"/>
                                 <state key="normal" image="GrumpyCat"/>
+                                <connections>
+                                    <action selector="touchedAGrumpyCat:" destination="CJ0-sf-sim" eventType="touchUpInside" id="MDF-Af-9od"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DJY-yM-203">
+                            <button opaque="NO" tag="9" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DJY-yM-203">
                                 <rect key="frame" x="0.0" y="368" width="104" height="184"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" image="GrumpyCat"/>
+                                <connections>
+                                    <action selector="touchedAGrumpyCat:" destination="CJ0-sf-sim" eventType="touchUpInside" id="Dea-LL-Na8"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nry-S2-d3y">
                                 <rect key="frame" x="104" y="368" width="104" height="184"/>
@@ -91,20 +112,21 @@
                                     <action selector="moveDogeDown:" destination="CJ0-sf-sim" eventType="touchUpInside" id="kbO-qm-ubL"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vQs-lu-Jur">
+                            <button opaque="NO" tag="10" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vQs-lu-Jur">
                                 <rect key="frame" x="208" y="368" width="104" height="184"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" image="GrumpyCat"/>
+                                <connections>
+                                    <action selector="touchedAGrumpyCat:" destination="CJ0-sf-sim" eventType="touchUpInside" id="9jb-qs-whK"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ltB-2g-M0j">
-                                <rect key="frame" x="312" y="368" width="104" height="184"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <state key="normal" image="GrumpyCat"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bRQ-df-CY8">
+                            <button opaque="NO" tag="6" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bRQ-df-CY8">
                                 <rect key="frame" x="0.0" y="184" width="104" height="184"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" image="GrumpyCat"/>
+                                <connections>
+                                    <action selector="touchedAGrumpyCat:" destination="CJ0-sf-sim" eventType="touchUpInside" id="eFz-bf-2vD"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A3z-6J-LdR">
                                 <rect key="frame" x="104" y="184" width="104" height="184"/>
@@ -114,15 +136,21 @@
                                     <action selector="moveDogeDown:" destination="CJ0-sf-sim" eventType="touchUpInside" id="K1L-Eo-jMH"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sgm-aI-cTT">
+                            <button opaque="NO" tag="8" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sgm-aI-cTT">
                                 <rect key="frame" x="312" y="184" width="104" height="184"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" image="GrumpyCat"/>
+                                <connections>
+                                    <action selector="touchedAGrumpyCat:" destination="CJ0-sf-sim" eventType="touchUpInside" id="fWa-PR-X2y"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YFj-Zv-48D">
+                            <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YFj-Zv-48D">
                                 <rect key="frame" x="0.0" y="0.0" width="104" height="184"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" image="GrumpyCat"/>
+                                <connections>
+                                    <action selector="touchedAGrumpyCat:" destination="CJ0-sf-sim" eventType="touchUpInside" id="NQ7-lZ-iiK"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i73-Ja-wdh">
                                 <rect key="frame" x="104" y="0.0" width="104" height="184"/>
@@ -132,20 +160,37 @@
                                     <action selector="moveDogeDown:" destination="CJ0-sf-sim" eventType="touchUpInside" id="hvS-Lm-kGo"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hwf-vj-aIB">
+                            <button opaque="NO" tag="4" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hwf-vj-aIB">
                                 <rect key="frame" x="208" y="0.0" width="104" height="184"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" image="GrumpyCat"/>
+                                <connections>
+                                    <action selector="touchedAGrumpyCat:" destination="CJ0-sf-sim" eventType="touchUpInside" id="a3x-Ae-x45"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cKU-c3-gMj">
+                            <button opaque="NO" tag="5" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cKU-c3-gMj">
                                 <rect key="frame" x="312" y="0.0" width="104" height="184"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" image="GrumpyCat"/>
+                                <connections>
+                                    <action selector="touchedAGrumpyCat:" destination="CJ0-sf-sim" eventType="touchUpInside" id="uxF-k4-74Q"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uu7-hF-cGM">
+                            <button opaque="NO" tag="7" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uu7-hF-cGM">
                                 <rect key="frame" x="208" y="184" width="104" height="184"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <state key="normal" image="GrumpyCat"/>
+                                <connections>
+                                    <action selector="touchedAGrumpyCat:" destination="CJ0-sf-sim" eventType="touchUpInside" id="e3g-h1-epA"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="11" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ltB-2g-M0j">
+                                <rect key="frame" x="312" y="368" width="104" height="184"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" image="GrumpyCat"/>
+                                <connections>
+                                    <action selector="touchedAGrumpyCat:" destination="CJ0-sf-sim" eventType="touchUpInside" id="NKd-eD-neH"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -176,7 +221,26 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iWh-N4-G2m" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="944" y="385"/>
+            <point key="canvasLocation" x="901" y="322"/>
+        </scene>
+        <!--Game Over View Controller-->
+        <scene sceneID="YIh-2U-Ikh">
+            <objects>
+                <viewController id="JYv-SY-4Zg" customClass="GameOverViewController" customModule="DogeSitter" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="juy-Dg-6tf"/>
+                        <viewControllerLayoutGuide type="bottom" id="9Zt-ta-EQ5"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="YFU-B6-O5r">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZuZ-bb-qnD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1333" y="322"/>
         </scene>
     </scenes>
     <resources>

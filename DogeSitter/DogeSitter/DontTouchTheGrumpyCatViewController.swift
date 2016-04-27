@@ -31,19 +31,52 @@ class DontTouchTheGrumpyCatViewController: UIViewController {
     @IBOutlet var DogeButton2: UIButton!
     @IBOutlet var DogeButton3: UIButton!
     @IBOutlet var DogeButton4: UIButton!
-
+    
+// self.presentviewcontroller with NSTIMER
+// need var G2 = viewcontroller type seguing to from in 1st viewcontroller
+//viewdidload:
+    
+    var score = Int()
+    var highscore = Int()
+    var timer = NSTimer()
+    var scoreLabel = UILabel()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // how do i make the buttons start off random instead of a straight line?
+        var highscoreDefault = NSUserDefaults.standardUserDefaults()
         
-//        randomPlacement1()
-//        randomPlacement2()
-//        randomPlacement3()
-//        randomPlacement4()
-//        randomPlacement5()
+        if (highscoreDefault.valueForKey("highscore") != nil) {
+            highscore = highscoreDefault.valueForKey("highscore") as! NSInteger
+//            NSLog("\(highscore)")
+        } else {
+            highscore = 0
+        }
+
+        scoreLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 20))
+        scoreLabel.center = CGPoint(x: self.view.frame.size.width * 0.985, y: 25)
+        scoreLabel.textColor = UIColor.redColor()
+        scoreLabel.text = "\(score)"
+        self.view.addSubview(scoreLabel)
+        
+        var highscoreLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 20))
+        highscoreLabel.center = CGPoint(x: self.view.frame.size.width * 0.48, y: 25)
+        highscoreLabel.textColor = UIColor.redColor()
+        highscoreLabel.text = "\(highscore)"
+        self.view.addSubview(highscoreLabel)
         // Do any additional setup after loading the view.
+        
+        score = 0 //should this change later on?
+        
+        var timer = NSTimer.scheduledTimerWithTimeInterval(5.0, target: self, selector: #selector(DontTouchTheGrumpyCatViewController.update), userInfo: nil, repeats: true)
     }
+    
+    func update(timer: NSTimer) {
+        
+        let info = timer.userInfo
+    }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -54,7 +87,25 @@ class DontTouchTheGrumpyCatViewController: UIViewController {
         // end game
     }
     
+    @IBAction func touchedAGrumpyCat(sender: AnyObject) {
+        self.presentViewController(GameOverViewController(), animated: true, completion: nil)
+    }
+    
     @IBAction func moveDogeDown(sender: AnyObject) {
+        var highscoreDefault = NSUserDefaults.standardUserDefaults()
+        var scoreDefault = NSUserDefaults.standardUserDefaults()
+        
+        score += 1
+        scoreDefault.setValue(score, forKey: "tempscore")
+        scoreLabel.text = "\(score)"
+        
+//        NSLog("\(score)")
+        
+        if (score > highscore) {
+            highscore = score
+            highscoreDefault.setValue(score, forKey: "highscore")
+        }
+        
         GrumpyButton01.center.y = GrumpyButton01.center.y + 184
         GrumpyButton02.center.y = GrumpyButton02.center.y + 184
         GrumpyButton03.center.y = GrumpyButton03.center.y + 184
@@ -76,6 +127,7 @@ class DontTouchTheGrumpyCatViewController: UIViewController {
         DogeButton2.center.y = DogeButton2.center.y + 184
         DogeButton3.center.y = DogeButton3.center.y + 184
         DogeButton4.center.y = DogeButton4.center.y + 184
+        
         
         if DogeButton0.center.y >= 828 {
             DogeButton0.center.y = -92
