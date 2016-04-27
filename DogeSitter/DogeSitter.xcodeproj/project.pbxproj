@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		4529FB8E1CCDB3D800945312 /* DontTouchTheGrumpyCatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4529FB8D1CCDB3D800945312 /* DontTouchTheGrumpyCatViewController.swift */; };
 		4532ED7D1CD14DC50030867D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4532ED7C1CD14DC50030867D /* Assets.xcassets */; };
-		4532ED7F1CD162E10030867D /* dogeBackground.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4532ED7E1CD162E10030867D /* dogeBackground.jpg */; };
 		454685811CD095AC00CF06FF /* GameOverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454685801CD095AC00CF06FF /* GameOverViewController.swift */; };
 		4578B3F41CC99815001294FE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4578B3F31CC99815001294FE /* AppDelegate.swift */; };
 		4578B3F61CC99815001294FE /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 4578B3F51CC99815001294FE /* GameScene.sks */; };
@@ -41,7 +40,6 @@
 /* Begin PBXFileReference section */
 		4529FB8D1CCDB3D800945312 /* DontTouchTheGrumpyCatViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = DontTouchTheGrumpyCatViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		4532ED7C1CD14DC50030867D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		4532ED7E1CD162E10030867D /* dogeBackground.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = dogeBackground.jpg; path = Assets.xcassets/dogeBackground.jpg; sourceTree = "<group>"; };
 		454685801CD095AC00CF06FF /* GameOverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameOverViewController.swift; sourceTree = "<group>"; };
 		4578B3F01CC99815001294FE /* DogeSitter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DogeSitter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4578B3F31CC99815001294FE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -110,7 +108,6 @@
 				4578B3F31CC99815001294FE /* AppDelegate.swift */,
 				4578B3F51CC99815001294FE /* GameScene.sks */,
 				4578B3F71CC99815001294FE /* GameScene.swift */,
-				4532ED7E1CD162E10030867D /* dogeBackground.jpg */,
 				4532ED7C1CD14DC50030867D /* Assets.xcassets */,
 				4578B3F91CC99815001294FE /* GameViewController.swift */,
 				4578B3FB1CC99815001294FE /* Main.storyboard */,
@@ -247,7 +244,6 @@
 			files = (
 				4578B3F61CC99815001294FE /* GameScene.sks in Resources */,
 				4578B4021CC99815001294FE /* LaunchScreen.storyboard in Resources */,
-				4532ED7F1CD162E10030867D /* dogeBackground.jpg in Resources */,
 				4532ED7D1CD14DC50030867D /* Assets.xcassets in Resources */,
 				4578B3FD1CC99815001294FE /* Main.storyboard in Resources */,
 			);
