@@ -39,14 +39,17 @@ class DontTouchTheGrumpyCatViewController: UIViewController {
     var score = Int()
     var highscore = Int()
     var timer = NSTimer()
+    var timerLabel = UILabel()
     var scoreLabel = UILabel()
+    var highscoreLabel = UILabel()
+    var count = Int()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // how do i make the buttons start off random instead of a straight line?
         var highscoreDefault = NSUserDefaults.standardUserDefaults()
-        
+        count = 10
         if (highscoreDefault.valueForKey("highscore") != nil) {
             highscore = highscoreDefault.valueForKey("highscore") as! NSInteger
 //            NSLog("\(highscore)")
@@ -60,21 +63,30 @@ class DontTouchTheGrumpyCatViewController: UIViewController {
         scoreLabel.text = "\(score)"
         self.view.addSubview(scoreLabel)
         
-        var highscoreLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 20))
+        highscoreLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 20))
         highscoreLabel.center = CGPoint(x: self.view.frame.size.width * 0.48, y: 25)
         highscoreLabel.textColor = UIColor.redColor()
         highscoreLabel.text = "\(highscore)"
         self.view.addSubview(highscoreLabel)
+        
+        timerLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 20))
+        timerLabel.center = CGPoint(x: self.view.frame.size.width * 0.23, y: 25)
+        timerLabel.textColor = UIColor.redColor()
+        timerLabel.text = "\(count)"
+        self.view.addSubview(timerLabel)
+        
         // Do any additional setup after loading the view.
         
         score = 0 //should this change later on?
         
-        var timer = NSTimer.scheduledTimerWithTimeInterval(5.0, target: self, selector: #selector(DontTouchTheGrumpyCatViewController.update), userInfo: nil, repeats: true)
+        var timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: #selector(DontTouchTheGrumpyCatViewController.update), userInfo: nil, repeats: true)
     }
     
-    func update(timer: NSTimer) {
-        
-        let info = timer.userInfo
+    func update() {
+        if count > 0 {
+            count -= 1
+            timerLabel.text = "\(count)"
+        }
     }
     
 
