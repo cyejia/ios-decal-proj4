@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="CJ0-sf-sim">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ktO-IA-djn">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -22,6 +22,47 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-115" y="302"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="ttH-b4-aHi">
+            <objects>
+                <viewController id="ktO-IA-djn" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="2cY-8x-gUG"/>
+                        <viewControllerLayoutGuide type="bottom" id="O1b-XZ-HS4"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Dc4-Pv-mYN">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="dogeB" translatesAutoresizingMaskIntoConstraints="NO" id="hFl-pi-6ra">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="DogeSitter" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EoD-S8-3wV">
+                                <rect key="frame" x="20" y="69" width="374" height="67"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="45"/>
+                                <color key="textColor" red="0.42352941179999998" green="0.4431372549" blue="0.76862745099999996" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ao1-mI-oiI">
+                                <rect key="frame" x="168" y="144" width="79" height="52"/>
+                                <fontDescription key="fontDescription" type="system" weight="light" pointSize="25"/>
+                                <state key="normal" title="Begin">
+                                    <color key="titleColor" red="0.82745098039999998" green="0.21176470589999999" blue="0.50980392159999999" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="CJ0-sf-sim" kind="presentation" modalTransitionStyle="flipHorizontal" id="ArH-fB-TUN"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.011141231200000001" green="0.015776832189999999" blue="0.3234211387" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bIV-lB-J35" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="398" y="302"/>
         </scene>
         <!--Dont Touch The Grumpy Cat View Controller-->
         <scene sceneID="dv8-Mn-a0N">
@@ -221,7 +262,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iWh-N4-G2m" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="901" y="322"/>
+            <point key="canvasLocation" x="895" y="302"/>
         </scene>
         <!--Game Over View Controller-->
         <scene sceneID="YIh-2U-Ikh">
@@ -240,11 +281,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZuZ-bb-qnD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1333" y="322"/>
+            <point key="canvasLocation" x="1391" y="302"/>
         </scene>
     </scenes>
     <resources>
         <image name="Doge" width="104" height="184"/>
         <image name="GrumpyCat" width="104" height="184"/>
+        <image name="dogeB" width="414" height="675"/>
     </resources>
 </document>

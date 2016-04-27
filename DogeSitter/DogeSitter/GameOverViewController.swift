@@ -51,7 +51,7 @@ class GameOverViewController: UIViewController {
     func backToGame() {
         self.presentViewController(game, animated: true, completion: nil)
         print("back to game")
-        self.viewDidLoad()
+        self.presentViewController(DontTouchTheGrumpyCatViewController(), animated: true, completion: nil)
         print("view did load")
     }
 
