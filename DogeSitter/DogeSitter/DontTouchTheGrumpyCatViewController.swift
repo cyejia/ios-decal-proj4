@@ -43,6 +43,7 @@ class DontTouchTheGrumpyCatViewController: UIViewController {
     var scoreLabel = UILabel()
     var highscoreLabel = UILabel()
     var count = Int()
+    var desiredScore = 0
     
     
     override func viewDidLoad() {
@@ -56,7 +57,9 @@ class DontTouchTheGrumpyCatViewController: UIViewController {
         } else {
             highscore = 0
         }
-
+        
+        desiredScore = desiredScore + 3
+        
         scoreLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 20))
         scoreLabel.center = CGPoint(x: self.view.frame.size.width * 0.985, y: 25)
         scoreLabel.textColor = UIColor.redColor()
@@ -87,6 +90,12 @@ class DontTouchTheGrumpyCatViewController: UIViewController {
             count -= 1
             timerLabel.text = "\(count)"
         }
+        if count == 0 && score < desiredScore {
+            self.presentViewController(GameOverViewController(), animated: true, completion: nil)
+        }
+    }
+    
+    @IBAction func playAgain(segue:UIStoryboardSegue) {
     }
     
 
