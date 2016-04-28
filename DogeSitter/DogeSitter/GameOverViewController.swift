@@ -35,12 +35,12 @@ class GameOverViewController: UIViewController {
 //        highscoreLabel.text = "\(highscore)"
 //        self.view.addSubview(highscoreLabel)
         
-        var backButton = UIButton(frame: CGRect(x: 0, y: 0, width: 100, height: 20))
-        backButton.center = CGPoint(x: self.view.frame.size.width / 2, y: 100)
-        backButton.setTitle("Play Again", forState: UIControlState.Normal)
-        backButton.backgroundColor = UIColor.purpleColor()
-        backButton.addTarget(self, action: Selector("backToGame"), forControlEvents: UIControlEvents.TouchUpInside)
-        self.view.addSubview(backButton)
+//        var backButton = UIButton(frame: CGRect(x: 0, y: 0, width: 100, height: 20))
+//        backButton.center = CGPoint(x: self.view.frame.size.width / 2, y: 300)
+//        backButton.setTitle("Play Again", forState: UIControlState.Normal)
+//        backButton.backgroundColor = UIColor.purpleColor()
+//        backButton.addTarget(self, action: Selector("backToGame"), forControlEvents: UIControlEvents.TouchUpInside)
+//        self.view.addSubview(backButton)
         
 //        NSLog("\(score)")
 //        NSLog("\(highscore)")

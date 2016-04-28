@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Game View Controller-->
@@ -82,6 +83,7 @@
                                 <state key="normal" image="GrumpyCat"/>
                                 <connections>
                                     <action selector="touchedAGrumpyCat:" destination="CJ0-sf-sim" eventType="touchUpInside" id="ZOa-g7-JHK"/>
+                                    <segue destination="JYv-SY-4Zg" kind="presentation" id="NTJ-s2-ghL"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Aj-CX-jjE">
@@ -98,6 +100,7 @@
                                 <state key="normal" image="GrumpyCat"/>
                                 <connections>
                                     <action selector="touchedAGrumpyCat:" destination="CJ0-sf-sim" eventType="touchUpInside" id="myI-rt-YYw"/>
+                                    <segue destination="JYv-SY-4Zg" kind="presentation" id="joJ-tF-mqe"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="14" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bEd-0U-8pz">
@@ -106,6 +109,7 @@
                                 <state key="normal" image="GrumpyCat"/>
                                 <connections>
                                     <action selector="touchedAGrumpyCat:" destination="CJ0-sf-sim" eventType="touchUpInside" id="JZo-Re-1yl"/>
+                                    <segue destination="JYv-SY-4Zg" kind="presentation" id="sbw-54-o3Z"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LQa-2T-gO5">
@@ -113,6 +117,7 @@
                                 <state key="normal" image="GrumpyCat"/>
                                 <connections>
                                     <action selector="touchedAGrumpyCat:" destination="CJ0-sf-sim" eventType="touchUpInside" id="v3J-Ul-DD3"/>
+                                    <segue destination="JYv-SY-4Zg" kind="presentation" id="VJN-aq-sFC"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cuh-fh-aBp">
@@ -128,6 +133,7 @@
                                 <state key="normal" image="GrumpyCat"/>
                                 <connections>
                                     <action selector="touchedAGrumpyCat:" destination="CJ0-sf-sim" eventType="touchUpInside" id="NOa-Op-Yb0"/>
+                                    <segue destination="JYv-SY-4Zg" kind="presentation" id="yRQ-3B-pVe"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2lJ-eb-zKB">
@@ -135,6 +141,7 @@
                                 <state key="normal" image="GrumpyCat"/>
                                 <connections>
                                     <action selector="touchedAGrumpyCat:" destination="CJ0-sf-sim" eventType="touchUpInside" id="MDF-Af-9od"/>
+                                    <segue destination="JYv-SY-4Zg" kind="presentation" id="NhA-lB-Gyb"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="9" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DJY-yM-203">
@@ -143,6 +150,7 @@
                                 <state key="normal" image="GrumpyCat"/>
                                 <connections>
                                     <action selector="touchedAGrumpyCat:" destination="CJ0-sf-sim" eventType="touchUpInside" id="Dea-LL-Na8"/>
+                                    <segue destination="JYv-SY-4Zg" kind="presentation" id="Ic2-qS-Ykf"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nry-S2-d3y">
@@ -159,6 +167,7 @@
                                 <state key="normal" image="GrumpyCat"/>
                                 <connections>
                                     <action selector="touchedAGrumpyCat:" destination="CJ0-sf-sim" eventType="touchUpInside" id="9jb-qs-whK"/>
+                                    <segue destination="JYv-SY-4Zg" kind="presentation" id="2hV-hB-tPY"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="6" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bRQ-df-CY8">
@@ -167,6 +176,7 @@
                                 <state key="normal" image="GrumpyCat"/>
                                 <connections>
                                     <action selector="touchedAGrumpyCat:" destination="CJ0-sf-sim" eventType="touchUpInside" id="eFz-bf-2vD"/>
+                                    <segue destination="JYv-SY-4Zg" kind="presentation" id="DRV-Jr-LZq"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A3z-6J-LdR">
@@ -183,6 +193,7 @@
                                 <state key="normal" image="GrumpyCat"/>
                                 <connections>
                                     <action selector="touchedAGrumpyCat:" destination="CJ0-sf-sim" eventType="touchUpInside" id="fWa-PR-X2y"/>
+                                    <segue destination="JYv-SY-4Zg" kind="presentation" id="DCg-ai-1Do"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YFj-Zv-48D">
@@ -191,6 +202,7 @@
                                 <state key="normal" image="GrumpyCat"/>
                                 <connections>
                                     <action selector="touchedAGrumpyCat:" destination="CJ0-sf-sim" eventType="touchUpInside" id="NQ7-lZ-iiK"/>
+                                    <segue destination="JYv-SY-4Zg" kind="presentation" id="ZRd-od-e6I"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i73-Ja-wdh">
@@ -207,6 +219,7 @@
                                 <state key="normal" image="GrumpyCat"/>
                                 <connections>
                                     <action selector="touchedAGrumpyCat:" destination="CJ0-sf-sim" eventType="touchUpInside" id="a3x-Ae-x45"/>
+                                    <segue destination="JYv-SY-4Zg" kind="presentation" id="DpS-Ke-9QR"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="5" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cKU-c3-gMj">
@@ -215,6 +228,7 @@
                                 <state key="normal" image="GrumpyCat"/>
                                 <connections>
                                     <action selector="touchedAGrumpyCat:" destination="CJ0-sf-sim" eventType="touchUpInside" id="uxF-k4-74Q"/>
+                                    <segue destination="JYv-SY-4Zg" kind="presentation" id="L7L-Tn-TtW"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="7" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uu7-hF-cGM">
@@ -223,6 +237,7 @@
                                 <state key="normal" image="GrumpyCat"/>
                                 <connections>
                                     <action selector="touchedAGrumpyCat:" destination="CJ0-sf-sim" eventType="touchUpInside" id="e3g-h1-epA"/>
+                                    <segue destination="JYv-SY-4Zg" kind="presentation" id="lS9-bT-3zP"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="11" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ltB-2g-M0j">
@@ -231,6 +246,7 @@
                                 <state key="normal" image="GrumpyCat"/>
                                 <connections>
                                     <action selector="touchedAGrumpyCat:" destination="CJ0-sf-sim" eventType="touchUpInside" id="NKd-eD-neH"/>
+                                    <segue destination="JYv-SY-4Zg" kind="presentation" id="Q0u-bu-51N"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -262,7 +278,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iWh-N4-G2m" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="895" y="302"/>
+            <point key="canvasLocation" x="951" y="302"/>
         </scene>
         <!--Game Over View Controller-->
         <scene sceneID="YIh-2U-Ikh">
@@ -275,13 +291,34 @@
                     <view key="view" contentMode="scaleToFill" id="YFU-B6-O5r">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Game Over" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="go4-fB-AwA">
+                                <rect key="frame" x="20" y="112" width="374" height="51"/>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="50"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0IG-bP-lNl">
+                                <rect key="frame" x="20" y="195" width="374" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <state key="normal" title="Play Again">
+                                    <color key="titleColor" red="0.86274509799999999" green="0.1960784314" blue="0.1843137255" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="go4-fB-AwA" firstAttribute="trailing" secondItem="YFU-B6-O5r" secondAttribute="trailingMargin" id="16s-ZY-OOs"/>
+                            <constraint firstItem="go4-fB-AwA" firstAttribute="top" secondItem="juy-Dg-6tf" secondAttribute="bottom" constant="92" id="4lD-hs-23H"/>
+                            <constraint firstItem="9Zt-ta-EQ5" firstAttribute="top" secondItem="go4-fB-AwA" secondAttribute="bottom" constant="573" id="Taz-hS-rtI"/>
+                            <constraint firstItem="go4-fB-AwA" firstAttribute="leading" secondItem="YFU-B6-O5r" secondAttribute="leadingMargin" id="fiJ-Yk-1fw"/>
+                        </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZuZ-bb-qnD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1397" y="302"/>
+            <point key="canvasLocation" x="1603" y="302"/>
         </scene>
     </scenes>
     <resources>
@@ -289,4 +326,7 @@
         <image name="GrumpyCat" width="104" height="184"/>
         <image name="dogeStart" width="414" height="736"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="yRQ-3B-pVe"/>
+    </inferredMetricsTieBreakers>
 </document>
