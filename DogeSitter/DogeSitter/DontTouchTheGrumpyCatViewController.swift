@@ -9,78 +9,219 @@
 import UIKit
 
 class DontTouchTheGrumpyCatViewController: UIViewController {
-
-    @IBOutlet var GrumpyButton01: UIButton!
-    @IBOutlet var GrumpyButton02: UIButton!
-    @IBOutlet var GrumpyButton03: UIButton!
-    @IBOutlet var GrumpyButton1: UIButton!
-    @IBOutlet var GrumpyButton2: UIButton!
-    @IBOutlet var GrumpyButton3: UIButton!
-    @IBOutlet var GrumpyButton4: UIButton!
-    @IBOutlet var GrumpyButton5: UIButton!
-    @IBOutlet var GrumpyButton6: UIButton!
-    @IBOutlet var GrumpyButton7: UIButton!
-    @IBOutlet var GrumpyButton8: UIButton!
-    @IBOutlet var GrumpyButton9: UIButton!
-    @IBOutlet var GrumpyButton10: UIButton!
-    @IBOutlet var GrumpyButton11: UIButton!
-    @IBOutlet var GrumpyButton12: UIButton!
     
-    @IBOutlet var DogeButton0: UIButton!
-    @IBOutlet var DogeButton1: UIButton!
-    @IBOutlet var DogeButton2: UIButton!
-    @IBOutlet var DogeButton3: UIButton!
-    @IBOutlet var DogeButton4: UIButton!
+    let screenWidth = UIScreen.mainScreen().bounds.size.width
+    let screenHeight = UIScreen.mainScreen().bounds.size.height
     
-// self.presentviewcontroller with NSTIMER
-// need var G2 = viewcontroller type seguing to from in 1st viewcontroller
-//viewdidload:
+    var row1: [UIButton] = []
+    var row2: [UIButton] = []
+    var row3: [UIButton] = []
+    var row4: [UIButton] = []
+    var row5: [UIButton] = []
+    
+    var GrumpyButton1: UIButton!
+    var GrumpyButton2: UIButton!
+    var GrumpyButton3: UIButton!
+    var GrumpyButton4: UIButton!
+    var GrumpyButton5: UIButton!
+    var GrumpyButton6: UIButton!
+    var GrumpyButton7: UIButton!
+    var GrumpyButton8: UIButton!
+    var GrumpyButton9: UIButton!
+    var GrumpyButton10: UIButton!
+    var GrumpyButton11: UIButton!
+    var GrumpyButton12: UIButton!
+    var GrumpyButton13: UIButton!
+    var GrumpyButton14: UIButton!
+    var GrumpyButton15: UIButton!
+    
+    
+    var DogeButton1: UIButton!
+    var DogeButton2: UIButton!
+    var DogeButton3: UIButton!
+    var DogeButton4: UIButton!
+    var DogeButton5: UIButton!
+    
+    var buttonWidth = CGFloat()
+    var buttonHeight = CGFloat()
     
     var score = Int()
-    var highscore = Int()
     var timer = NSTimer()
     var timerLabel = UILabel()
     var scoreLabel = UILabel()
-    var highscoreLabel = UILabel()
     var count = Int()
     var desiredScore = 0
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // how do i make the buttons start off random instead of a straight line?
-        var highscoreDefault = NSUserDefaults.standardUserDefaults()
-        count = 5
-        if (highscoreDefault.valueForKey("highscore") != nil) {
-            highscore = highscoreDefault.valueForKey("highscore") as! NSInteger
-//            NSLog("\(highscore)")
-        } else {
-            highscore = 0
-        }
         
+        self.view.backgroundColor = UIColor.whiteColor()
+        
+        buttonWidth = screenWidth / 4
+        buttonHeight = screenHeight / 4
+        
+        count = 10
         desiredScore = desiredScore + 3
         
+        score = 0 //should this change later on?
+        
+        GrumpyButton1 = UIButton(frame: CGRect(x: 0, y: 0, width: buttonWidth, height: buttonHeight))
+        GrumpyButton1.setBackgroundImage(UIImage(named: "GrumpyCat.jpg"), forState: UIControlState.Normal)
+        GrumpyButton1.center = CGPoint(x: buttonWidth / 2.0, y: 0 - (buttonHeight / 2.0))
+        GrumpyButton1.addTarget(self, action: #selector(touchedAGrumpyCat), forControlEvents: UIControlEvents.TouchUpInside)
+        row1.append(GrumpyButton1)
+        self.view.addSubview(GrumpyButton1)
+        
+        GrumpyButton2 = UIButton(frame: CGRect(x: 0, y: 0, width: buttonWidth, height: buttonHeight))
+        GrumpyButton2.setBackgroundImage(UIImage(named: "GrumpyCat.jpg"), forState: UIControlState.Normal)
+        GrumpyButton2.center = CGPoint(x: buttonWidth / 2.0, y: buttonHeight / 2.0)
+        GrumpyButton2.addTarget(self, action: #selector(touchedAGrumpyCat), forControlEvents: UIControlEvents.TouchUpInside)
+        row2.append(GrumpyButton2)
+        self.view.addSubview(GrumpyButton2)
+        
+        GrumpyButton3 = UIButton(frame: CGRect(x: 0, y: 0, width: buttonWidth, height: buttonHeight))
+        GrumpyButton3.setBackgroundImage(UIImage(named: "GrumpyCat.jpg"), forState: UIControlState.Normal)
+        GrumpyButton3.center = CGPoint(x: buttonWidth / 2.0, y: buttonHeight + (buttonHeight / 2.0))
+        GrumpyButton3.addTarget(self, action: #selector(touchedAGrumpyCat), forControlEvents: UIControlEvents.TouchUpInside)
+        row3.append(GrumpyButton3)
+        self.view.addSubview(GrumpyButton3)
+        
+        GrumpyButton4 = UIButton(frame: CGRect(x: 0, y: 0, width: buttonWidth, height: buttonHeight))
+        GrumpyButton4.setBackgroundImage(UIImage(named: "GrumpyCat.jpg"), forState: UIControlState.Normal)
+        GrumpyButton4.center = CGPoint(x: buttonWidth / 2.0, y: (buttonHeight * 2.0) + (buttonHeight / 2.0))
+        GrumpyButton4.addTarget(self, action: #selector(touchedAGrumpyCat), forControlEvents: UIControlEvents.TouchUpInside)
+        row4.append(GrumpyButton4)
+        self.view.addSubview(GrumpyButton4)
+        
+        GrumpyButton5 = UIButton(frame: CGRect(x: 0, y: 0, width: buttonWidth, height: buttonHeight))
+        GrumpyButton5.setBackgroundImage(UIImage(named: "GrumpyCat.jpg"), forState: UIControlState.Normal)
+        GrumpyButton5.center = CGPoint(x: buttonWidth / 2.0, y: (buttonHeight * 3.0) + (buttonHeight / 2.0))
+        GrumpyButton5.addTarget(self, action: #selector(touchedAGrumpyCat), forControlEvents: UIControlEvents.TouchUpInside)
+        row5.append(GrumpyButton5)
+        self.view.addSubview(GrumpyButton5)
+        
+        GrumpyButton6 = UIButton(frame: CGRect(x: 0, y: 0, width: buttonWidth, height: buttonHeight))
+        GrumpyButton6.setBackgroundImage(UIImage(named: "GrumpyCat.jpg"), forState: UIControlState.Normal)
+        GrumpyButton6.center = CGPoint(x: (buttonWidth * 2.0) + (buttonWidth / 2.0), y: 0 - (buttonHeight / 2.0))
+        GrumpyButton6.addTarget(self, action: #selector(touchedAGrumpyCat), forControlEvents: UIControlEvents.TouchUpInside)
+        row1.append(GrumpyButton6)
+        self.view.addSubview(GrumpyButton6)
+        
+        GrumpyButton7 = UIButton(frame: CGRect(x: 0, y: 0, width: buttonWidth, height: buttonHeight))
+        GrumpyButton7.setBackgroundImage(UIImage(named: "GrumpyCat.jpg"), forState: UIControlState.Normal)
+        GrumpyButton7.center = CGPoint(x: (buttonWidth * 2.0) + (buttonWidth / 2.0), y: buttonHeight / 2.0)
+        GrumpyButton7.addTarget(self, action: #selector(touchedAGrumpyCat), forControlEvents: UIControlEvents.TouchUpInside)
+        row2.append(GrumpyButton7)
+        self.view.addSubview(GrumpyButton7)
+        
+        GrumpyButton8 = UIButton(frame: CGRect(x: 0, y: 0, width: buttonWidth, height: buttonHeight))
+        GrumpyButton8.setBackgroundImage(UIImage(named: "GrumpyCat.jpg"), forState: UIControlState.Normal)
+        GrumpyButton8.center = CGPoint(x: (buttonWidth * 2.0) + (buttonWidth / 2.0), y: buttonHeight + (buttonHeight / 2.0))
+        GrumpyButton8.addTarget(self, action: #selector(touchedAGrumpyCat), forControlEvents: UIControlEvents.TouchUpInside)
+        row3.append(GrumpyButton8)
+        self.view.addSubview(GrumpyButton8)
+        
+        GrumpyButton9 = UIButton(frame: CGRect(x: 0, y: 0, width: buttonWidth, height: buttonHeight))
+        GrumpyButton9.setBackgroundImage(UIImage(named: "GrumpyCat.jpg"), forState: UIControlState.Normal)
+        GrumpyButton9.center = CGPoint(x: (buttonWidth * 2.0) + (buttonWidth / 2.0), y: (buttonHeight * 2.0) + (buttonHeight / 2.0))
+        GrumpyButton9.addTarget(self, action: #selector(touchedAGrumpyCat), forControlEvents: UIControlEvents.TouchUpInside)
+        row4.append(GrumpyButton9)
+        self.view.addSubview(GrumpyButton9)
+        
+        GrumpyButton10 = UIButton(frame: CGRect(x: 0, y: 0, width: buttonWidth, height: buttonHeight))
+        GrumpyButton10.setBackgroundImage(UIImage(named: "GrumpyCat.jpg"), forState: UIControlState.Normal)
+        GrumpyButton10.center = CGPoint(x: (buttonWidth * 2.0) + (buttonWidth / 2.0), y: (buttonHeight * 3.0) + (buttonHeight / 2.0))
+        GrumpyButton10.addTarget(self, action: #selector(touchedAGrumpyCat), forControlEvents: UIControlEvents.TouchUpInside)
+        row5.append(GrumpyButton10)
+        self.view.addSubview(GrumpyButton10)
+        
+        GrumpyButton11 = UIButton(frame: CGRect(x: 0, y: 0, width: buttonWidth, height: buttonHeight))
+        GrumpyButton11.setBackgroundImage(UIImage(named: "GrumpyCat.jpg"), forState: UIControlState.Normal)
+        GrumpyButton11.center = CGPoint(x: (buttonWidth * 3.0) + (buttonWidth / 2.0), y: 0 - (buttonHeight / 2.0))
+        GrumpyButton11.addTarget(self, action: #selector(touchedAGrumpyCat), forControlEvents: UIControlEvents.TouchUpInside)
+        row1.append(GrumpyButton11)
+        self.view.addSubview(GrumpyButton11)
+        
+        GrumpyButton12 = UIButton(frame: CGRect(x: 0, y: 0, width: buttonWidth, height: buttonHeight))
+        GrumpyButton12.setBackgroundImage(UIImage(named: "GrumpyCat.jpg"), forState: UIControlState.Normal)
+        GrumpyButton12.center = CGPoint(x: (buttonWidth * 3.0) + (buttonWidth / 2.0), y: buttonHeight / 2.0)
+        GrumpyButton12.addTarget(self, action: #selector(touchedAGrumpyCat), forControlEvents: UIControlEvents.TouchUpInside)
+        row2.append(GrumpyButton12)
+        self.view.addSubview(GrumpyButton12)
+        
+        GrumpyButton13 = UIButton(frame: CGRect(x: 0, y: 0, width: buttonWidth, height: buttonHeight))
+        GrumpyButton13.setBackgroundImage(UIImage(named: "GrumpyCat.jpg"), forState: UIControlState.Normal)
+        GrumpyButton13.center = CGPoint(x: (buttonWidth * 3.0) + (buttonWidth / 2.0), y: buttonHeight + (buttonHeight / 2.0))
+        GrumpyButton13.addTarget(self, action: #selector(touchedAGrumpyCat), forControlEvents: UIControlEvents.TouchUpInside)
+        row3.append(GrumpyButton13)
+        self.view.addSubview(GrumpyButton13)
+        
+        GrumpyButton14 = UIButton(frame: CGRect(x: 0, y: 0, width: buttonWidth, height: buttonHeight))
+        GrumpyButton14.setBackgroundImage(UIImage(named: "GrumpyCat.jpg"), forState: UIControlState.Normal)
+        GrumpyButton14.center = CGPoint(x: (buttonWidth * 3.0) + (buttonWidth / 2.0), y: (buttonHeight * 2.0) + (buttonHeight / 2.0))
+        GrumpyButton14.addTarget(self, action: #selector(touchedAGrumpyCat), forControlEvents: UIControlEvents.TouchUpInside)
+        row4.append(GrumpyButton14)
+        self.view.addSubview(GrumpyButton14)
+        
+        GrumpyButton15 = UIButton(frame: CGRect(x: 0, y: 0, width: buttonWidth, height: buttonHeight))
+        GrumpyButton15.setBackgroundImage(UIImage(named: "GrumpyCat.jpg"), forState: UIControlState.Normal)
+        GrumpyButton15.center = CGPoint(x: (buttonWidth * 3.0) + (buttonWidth / 2.0), y: (buttonHeight * 3.0) + (buttonHeight / 2.0))
+        GrumpyButton15.addTarget(self, action: #selector(touchedAGrumpyCat), forControlEvents: UIControlEvents.TouchUpInside)
+        row5.append(GrumpyButton15)
+        self.view.addSubview(GrumpyButton15)
+        
+        DogeButton1 = UIButton(frame: CGRect(x: 0, y: 0, width: buttonWidth, height: buttonHeight))
+        DogeButton1.setBackgroundImage(UIImage(named: "Doge.jpg"), forState: UIControlState.Normal)
+        DogeButton1.center = CGPoint(x: buttonWidth + (buttonWidth / 2.0), y: 0 - (buttonHeight / 2.0))
+        DogeButton1.addTarget(self, action: #selector(moveDogeDown), forControlEvents: UIControlEvents.TouchUpInside)
+        row1.append(DogeButton1)
+        self.view.addSubview(DogeButton1)
+        
+        DogeButton2 = UIButton(frame: CGRect(x: 0, y: 0, width: buttonWidth, height: buttonHeight))
+        DogeButton2.setBackgroundImage(UIImage(named: "Doge.jpg"), forState: UIControlState.Normal)
+        DogeButton2.center = CGPoint(x: buttonWidth + (buttonWidth / 2.0), y: buttonHeight / 2.0)
+        DogeButton2.addTarget(self, action: #selector(moveDogeDown), forControlEvents: UIControlEvents.TouchUpInside)
+        row2.append(DogeButton2)
+        self.view.addSubview(DogeButton2)
+        
+        DogeButton3 = UIButton(frame: CGRect(x: 0, y: 0, width: buttonWidth, height: buttonHeight))
+        DogeButton3.setBackgroundImage(UIImage(named: "Doge.jpg"), forState: UIControlState.Normal)
+        DogeButton3.center = CGPoint(x: buttonWidth + (buttonWidth / 2.0), y: buttonHeight + (buttonHeight / 2.0))
+        DogeButton3.addTarget(self, action: #selector(moveDogeDown), forControlEvents: UIControlEvents.TouchUpInside)
+        row3.append(DogeButton3)
+        self.view.addSubview(DogeButton3)
+        
+        DogeButton4 = UIButton(frame: CGRect(x: 0, y: 0, width: buttonWidth, height: buttonHeight))
+        DogeButton4.setBackgroundImage(UIImage(named: "Doge.jpg"), forState: UIControlState.Normal)
+        DogeButton4.center = CGPoint(x: buttonWidth + (buttonWidth / 2.0), y: (buttonHeight * 2.0) + (buttonHeight / 2.0))
+        DogeButton4.addTarget(self, action: #selector(moveDogeDown), forControlEvents: UIControlEvents.TouchUpInside)
+        row4.append(DogeButton4)
+        self.view.addSubview(DogeButton4)
+        
+        DogeButton5 = UIButton(frame: CGRect(x: 0, y: 0, width: buttonWidth, height: buttonHeight))
+        DogeButton5.setBackgroundImage(UIImage(named: "Doge.jpg"), forState: UIControlState.Normal)
+        DogeButton5.center = CGPoint(x: buttonWidth + (buttonWidth / 2.0), y: (buttonHeight * 3.0) + (buttonHeight / 2.0))
+        DogeButton5.addTarget(self, action: #selector(moveDogeDown), forControlEvents: UIControlEvents.TouchUpInside)
+        row5.append(DogeButton5)
+        self.view.addSubview(DogeButton5)
+        
+        randomPlacement1()
+        randomPlacement2()
+        randomPlacement3()
+        randomPlacement4()
+        randomPlacement5()
+        
         scoreLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 20))
-        scoreLabel.center = CGPoint(x: self.view.frame.size.width * 0.985, y: 25)
+        scoreLabel.center = CGPoint(x: screenWidth * 0.985, y: buttonHeight * 0.18)
         scoreLabel.textColor = UIColor.redColor()
         scoreLabel.text = "\(score)"
         self.view.addSubview(scoreLabel)
         
-        highscoreLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 20))
-        highscoreLabel.center = CGPoint(x: self.view.frame.size.width * 0.48, y: 25)
-        highscoreLabel.textColor = UIColor.redColor()
-        highscoreLabel.text = "\(highscore)"
-        self.view.addSubview(highscoreLabel)
-        
         timerLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 20))
-        timerLabel.center = CGPoint(x: self.view.frame.size.width * 0.23, y: 25)
+        timerLabel.center = CGPoint(x: screenWidth * 0.235, y: buttonHeight * 0.18)
         timerLabel.textColor = UIColor.redColor()
         timerLabel.text = "\(count)"
         self.view.addSubview(timerLabel)
-        
-        // Do any additional setup after loading the view.
-        
-        score = 0 //should this change later on?
         
         timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: #selector(DontTouchTheGrumpyCatViewController.update), userInfo: nil, repeats: true)
     }
@@ -89,6 +230,10 @@ class DontTouchTheGrumpyCatViewController: UIViewController {
         if count > 0 {
             count -= 1
             timerLabel.text = "\(count)"
+        }
+        
+        if score > 9 {
+            scoreLabel.center = CGPoint(x: screenWidth * 0.98, y: buttonHeight * 0.18)
         }
         if count == 0 && score < desiredScore {
             self.presentViewController(GameOverViewController(), animated: true, completion: nil)
@@ -104,115 +249,105 @@ class DontTouchTheGrumpyCatViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    func endGame() {
-        // end game
-    }
-    
     @IBAction func touchedAGrumpyCat(sender: AnyObject) {
         self.presentViewController(GameOverViewController(), animated: true, completion: nil)
     }
     
     @IBAction func moveDogeDown(sender: AnyObject) {
-        var highscoreDefault = NSUserDefaults.standardUserDefaults()
-        var scoreDefault = NSUserDefaults.standardUserDefaults()
-        
+        if sender.center.y != (buttonHeight * 3) + (buttonHeight / 2) {
+            self.presentViewController(GameOverViewController(), animated: true, completion: nil)
+        }
+        let scoreDefault = NSUserDefaults.standardUserDefaults()
         score += 1
         scoreDefault.setValue(score, forKey: "tempscore")
         scoreLabel.text = "\(score)"
         
-//        NSLog("\(score)")
+        GrumpyButton1.center.y = GrumpyButton1.center.y + buttonHeight
+        GrumpyButton2.center.y = GrumpyButton2.center.y + buttonHeight
+        GrumpyButton3.center.y = GrumpyButton3.center.y + buttonHeight
+        GrumpyButton4.center.y = GrumpyButton4.center.y + buttonHeight
+        GrumpyButton5.center.y = GrumpyButton5.center.y + buttonHeight
+        GrumpyButton6.center.y = GrumpyButton6.center.y + buttonHeight
+        GrumpyButton7.center.y = GrumpyButton7.center.y + buttonHeight
+        GrumpyButton8.center.y = GrumpyButton8.center.y + buttonHeight
+        GrumpyButton9.center.y = GrumpyButton9.center.y + buttonHeight
+        GrumpyButton10.center.y = GrumpyButton10.center.y + buttonHeight
+        GrumpyButton11.center.y = GrumpyButton11.center.y + buttonHeight
+        GrumpyButton12.center.y = GrumpyButton12.center.y + buttonHeight
+        GrumpyButton13.center.y = GrumpyButton13.center.y + buttonHeight
+        GrumpyButton14.center.y = GrumpyButton14.center.y + buttonHeight
+        GrumpyButton15.center.y = GrumpyButton15.center.y + buttonHeight
         
-        if (score > highscore) {
-            highscore = score
-            highscoreDefault.setValue(score, forKey: "highscore")
-        }
+        DogeButton1.center.y = DogeButton1.center.y + buttonHeight
+        DogeButton2.center.y = DogeButton2.center.y + buttonHeight
+        DogeButton3.center.y = DogeButton3.center.y + buttonHeight
+        DogeButton4.center.y = DogeButton4.center.y + buttonHeight
+        DogeButton5.center.y = DogeButton5.center.y + buttonHeight
         
-        GrumpyButton01.center.y = GrumpyButton01.center.y + 184
-        GrumpyButton02.center.y = GrumpyButton02.center.y + 184
-        GrumpyButton03.center.y = GrumpyButton03.center.y + 184
-        GrumpyButton1.center.y = GrumpyButton1.center.y + 184
-        GrumpyButton2.center.y = GrumpyButton2.center.y + 184
-        GrumpyButton3.center.y = GrumpyButton3.center.y + 184
-        GrumpyButton4.center.y = GrumpyButton4.center.y + 184
-        GrumpyButton5.center.y = GrumpyButton5.center.y + 184
-        GrumpyButton6.center.y = GrumpyButton6.center.y + 184
-        GrumpyButton7.center.y = GrumpyButton7.center.y + 184
-        GrumpyButton8.center.y = GrumpyButton8.center.y + 184
-        GrumpyButton9.center.y = GrumpyButton9.center.y + 184
-        GrumpyButton10.center.y = GrumpyButton10.center.y + 184
-        GrumpyButton11.center.y = GrumpyButton11.center.y + 184
-        GrumpyButton12.center.y = GrumpyButton12.center.y + 184
-        
-        DogeButton0.center.y = DogeButton0.center.y + 184
-        DogeButton1.center.y = DogeButton1.center.y + 184
-        DogeButton2.center.y = DogeButton2.center.y + 184
-        DogeButton3.center.y = DogeButton3.center.y + 184
-        DogeButton4.center.y = DogeButton4.center.y + 184
-        
-        
-        if DogeButton0.center.y >= 828 {
-            DogeButton0.center.y = -92
-            GrumpyButton01.center.y = -92
-            GrumpyButton02.center.y = -92
-            GrumpyButton03.center.y = -92
+        if DogeButton1.center.y >= screenHeight + (buttonHeight / 2.0) {
+            DogeButton1.center.y = 0 - (buttonHeight / 2.0)
+            GrumpyButton1.center.y = 0 - (buttonHeight / 2.0)
+            GrumpyButton6.center.y = 0 - (buttonHeight / 2.0)
+            GrumpyButton11.center.y = 0 - (buttonHeight / 2.0)
             randomPlacement1()
         }
-        if DogeButton1.center.y >= 828 {
-            DogeButton1.center.y = -92
-            GrumpyButton1.center.y = -92
-            GrumpyButton2.center.y = -92
-            GrumpyButton3.center.y = -92
+        if DogeButton2.center.y >= screenHeight + (buttonHeight / 2.0) {
+            DogeButton2.center.y = 0 - (buttonHeight / 2.0)
+            GrumpyButton2.center.y = 0 - (buttonHeight / 2.0)
+            GrumpyButton7.center.y = 0 - (buttonHeight / 2.0)
+            GrumpyButton12.center.y = 0 - (buttonHeight / 2.0)
             randomPlacement2()
         }
-        if DogeButton2.center.y >= 828 {
-            DogeButton2.center.y = -92
-            GrumpyButton4.center.y = -92
-            GrumpyButton5.center.y = -92
-            GrumpyButton6.center.y = -92
+        if DogeButton3.center.y >= screenHeight + (buttonHeight / 2.0) {
+            DogeButton3.center.y = 0 - (buttonHeight / 2.0)
+            GrumpyButton3.center.y = 0 - (buttonHeight / 2.0)
+            GrumpyButton8.center.y = 0 - (buttonHeight / 2.0)
+            GrumpyButton13.center.y = 0 - (buttonHeight / 2.0)
             randomPlacement3()
         }
-        if DogeButton3.center.y >= 828 {
-            DogeButton3.center.y = -92
-            GrumpyButton7.center.y = -92
-            GrumpyButton8.center.y = -92
-            GrumpyButton9.center.y = -92
-            randomPlacement4()
+        if DogeButton4.center.y >= screenHeight + (buttonHeight / 2.0) {
+            DogeButton4.center.y = 0 - (buttonHeight / 2.0)
+            GrumpyButton4.center.y = 0 - (buttonHeight / 2.0)
+            GrumpyButton9.center.y = 0 - (buttonHeight / 2.0)
+            GrumpyButton14.center.y = 0 - (buttonHeight / 2.0)
+            randomPlacement5()
         }
-        if DogeButton4.center.y >= 828 {
-            DogeButton4.center.y = -92
-            GrumpyButton10.center.y = -92
-            GrumpyButton11.center.y = -92
-            GrumpyButton12.center.y = -92
+        
+        if DogeButton5.center.y >= screenHeight + (buttonHeight / 2.0) {
+            DogeButton5.center.y = 0 - (buttonHeight / 2.0)
+            GrumpyButton5.center.y = 0 - (buttonHeight / 2.0)
+            GrumpyButton10.center.y = 0 - (buttonHeight / 2.0)
+            GrumpyButton15.center.y = 0 - (buttonHeight / 2.0)
             randomPlacement5()
         }
     }
-
+    
     func randomPlacement1() {
         let randomNumber = arc4random() % 4
         switch(randomNumber) {
         case 0:
-            DogeButton0.center.x = 52
-            GrumpyButton01.center.x = 156
-            GrumpyButton02.center.x = 260
-            GrumpyButton03.center.x = 364
+            DogeButton1.center.x = buttonWidth / 2.0
+            GrumpyButton1.center.x = buttonWidth + (buttonWidth / 2.0)
+            GrumpyButton6.center.x = (buttonWidth  * 2.0) + (buttonWidth / 2.0)
+            GrumpyButton11.center.x = (buttonWidth  * 3.0) + (buttonWidth / 2.0)
             break
         case 1:
-            DogeButton0.center.x = 364
-            GrumpyButton01.center.x = 52
-            GrumpyButton02.center.x = 156
-            GrumpyButton03.center.x = 260
+            DogeButton1.center.x = (buttonWidth  * 3.0) + (buttonWidth / 2.0)
+            GrumpyButton1.center.x = buttonWidth / 2.0
+            GrumpyButton6.center.x = buttonWidth + (buttonWidth / 2.0)
+            GrumpyButton11.center.x = (buttonWidth  * 2.0) + (buttonWidth / 2.0)
             break
         case 2:
-            DogeButton0.center.x = 260
-            GrumpyButton01.center.x = 364
-            GrumpyButton02.center.x = 52
-            GrumpyButton03.center.x = 156
+            DogeButton1.center.x = (buttonWidth  * 2.0) + (buttonWidth / 2.0)
+            GrumpyButton1.center.x = (buttonWidth  * 3.0) + (buttonWidth / 2.0)
+            GrumpyButton6.center.x = buttonWidth / 2.0
+            GrumpyButton11.center.x = buttonWidth + (buttonWidth / 2.0)
             break
         case 3:
-            DogeButton0.center.x = 156
-            GrumpyButton01.center.x = 260
-            GrumpyButton02.center.x = 364
-            GrumpyButton03.center.x = 52
+            DogeButton1.center.x = buttonWidth + (buttonWidth / 2.0)
+            GrumpyButton1.center.x = (buttonWidth  * 2.0) + (buttonWidth / 2.0)
+            GrumpyButton6.center.x = (buttonWidth  * 3.0) + (buttonWidth / 2.0)
+            GrumpyButton11.center.x = buttonWidth / 2.0
             break
         default:
             break
@@ -223,28 +358,28 @@ class DontTouchTheGrumpyCatViewController: UIViewController {
         let randomNumber = arc4random() % 4
         switch(randomNumber) {
         case 0:
-            DogeButton1.center.x = 52
-            GrumpyButton1.center.x = 156
-            GrumpyButton2.center.x = 260
-            GrumpyButton3.center.x = 364
+            DogeButton2.center.x = buttonWidth / 2.0
+            GrumpyButton2.center.x = buttonWidth + (buttonWidth / 2.0)
+            GrumpyButton7.center.x = (buttonWidth  * 2.0) + (buttonWidth / 2.0)
+            GrumpyButton12.center.x = (buttonWidth  * 3.0) + (buttonWidth / 2.0)
             break
         case 1:
-            DogeButton1.center.x = 364
-            GrumpyButton1.center.x = 52
-            GrumpyButton2.center.x = 156
-            GrumpyButton3.center.x = 260
+            DogeButton2.center.x = (buttonWidth  * 3.0) + (buttonWidth / 2.0)
+            GrumpyButton2.center.x = buttonWidth / 2.0
+            GrumpyButton7.center.x = buttonWidth + (buttonWidth / 2.0)
+            GrumpyButton12.center.x = (buttonWidth  * 2.0) + (buttonWidth / 2.0)
             break
         case 2:
-            DogeButton1.center.x = 260
-            GrumpyButton1.center.x = 364
-            GrumpyButton2.center.x = 52
-            GrumpyButton3.center.x = 156
+            DogeButton2.center.x = (buttonWidth  * 2.0) + (buttonWidth / 2.0)
+            GrumpyButton2.center.x = (buttonWidth  * 3.0) + (buttonWidth / 2.0)
+            GrumpyButton7.center.x = buttonWidth / 2.0
+            GrumpyButton12.center.x = buttonWidth + (buttonWidth / 2.0)
             break
         case 3:
-            DogeButton1.center.x = 156
-            GrumpyButton1.center.x = 260
-            GrumpyButton2.center.x = 364
-            GrumpyButton3.center.x = 52
+            DogeButton2.center.x = buttonWidth + (buttonWidth / 2.0)
+            GrumpyButton2.center.x = (buttonWidth  * 2.0) + (buttonWidth / 2.0)
+            GrumpyButton7.center.x = (buttonWidth  * 3.0) + (buttonWidth / 2.0)
+            GrumpyButton12.center.x = buttonWidth / 2.0
             break
         default:
             break
@@ -255,28 +390,28 @@ class DontTouchTheGrumpyCatViewController: UIViewController {
         let randomNumber = arc4random() % 4
         switch(randomNumber) {
         case 0:
-            DogeButton2.center.x = 52
-            GrumpyButton4.center.x = 156
-            GrumpyButton5.center.x = 260
-            GrumpyButton6.center.x = 364
+            DogeButton3.center.x = buttonWidth / 2.0
+            GrumpyButton3.center.x = buttonWidth + (buttonWidth / 2.0)
+            GrumpyButton8.center.x = (buttonWidth  * 2.0) + (buttonWidth / 2.0)
+            GrumpyButton13.center.x = (buttonWidth  * 3.0) + (buttonWidth / 2.0)
             break
         case 1:
-            DogeButton2.center.x = 364
-            GrumpyButton4.center.x = 52
-            GrumpyButton5.center.x = 156
-            GrumpyButton6.center.x = 260
+            DogeButton3.center.x = (buttonWidth  * 3.0) + (buttonWidth / 2.0)
+            GrumpyButton3.center.x = buttonWidth / 2.0
+            GrumpyButton8.center.x = buttonWidth + (buttonWidth / 2.0)
+            GrumpyButton13.center.x = (buttonWidth  * 2.0) + (buttonWidth / 2.0)
             break
         case 2:
-            DogeButton2.center.x = 260
-            GrumpyButton4.center.x = 364
-            GrumpyButton5.center.x = 52
-            GrumpyButton6.center.x = 156
+            DogeButton3.center.x = (buttonWidth  * 2.0) + (buttonWidth / 2.0)
+            GrumpyButton3.center.x = (buttonWidth  * 3.0) + (buttonWidth / 2.0)
+            GrumpyButton8.center.x = buttonWidth / 2.0
+            GrumpyButton13.center.x = buttonWidth + (buttonWidth / 2.0)
             break
         case 3:
-            DogeButton2.center.x = 156
-            GrumpyButton4.center.x = 260
-            GrumpyButton5.center.x = 364
-            GrumpyButton6.center.x = 52
+            DogeButton3.center.x = buttonWidth + (buttonWidth / 2.0)
+            GrumpyButton3.center.x = (buttonWidth  * 2.0) + (buttonWidth / 2.0)
+            GrumpyButton8.center.x = (buttonWidth  * 3.0) + (buttonWidth / 2.0)
+            GrumpyButton13.center.x = buttonWidth / 2.0
             break
         default:
             break
@@ -287,28 +422,28 @@ class DontTouchTheGrumpyCatViewController: UIViewController {
         let randomNumber = arc4random() % 4
         switch(randomNumber) {
         case 0:
-            DogeButton3.center.x = 52
-            GrumpyButton7.center.x = 156
-            GrumpyButton8.center.x = 260
-            GrumpyButton9.center.x = 364
+            DogeButton4.center.x = buttonWidth / 2.0
+            GrumpyButton4.center.x = buttonWidth + (buttonWidth / 2.0)
+            GrumpyButton9.center.x = (buttonWidth  * 2.0) + (buttonWidth / 2.0)
+            GrumpyButton14.center.x = (buttonWidth  * 3.0) + (buttonWidth / 2.0)
             break
         case 1:
-            DogeButton3.center.x = 364
-            GrumpyButton7.center.x = 52
-            GrumpyButton8.center.x = 156
-            GrumpyButton9.center.x = 260
+            DogeButton4.center.x = (buttonWidth  * 3.0) + (buttonWidth / 2.0)
+            GrumpyButton4.center.x = buttonWidth / 2.0
+            GrumpyButton9.center.x = buttonWidth + (buttonWidth / 2.0)
+            GrumpyButton14.center.x = (buttonWidth  * 2.0) + (buttonWidth / 2.0)
             break
         case 2:
-            DogeButton3.center.x = 260
-            GrumpyButton7.center.x = 364
-            GrumpyButton8.center.x = 52
-            GrumpyButton9.center.x = 156
+            DogeButton4.center.x = (buttonWidth  * 2.0) + (buttonWidth / 2.0)
+            GrumpyButton4.center.x = (buttonWidth  * 3.0) + (buttonWidth / 2.0)
+            GrumpyButton9.center.x = buttonWidth / 2.0
+            GrumpyButton14.center.x = buttonWidth + (buttonWidth / 2.0)
             break
         case 3:
-            DogeButton3.center.x = 156
-            GrumpyButton7.center.x = 260
-            GrumpyButton8.center.x = 364
-            GrumpyButton9.center.x = 52
+            DogeButton4.center.x = buttonWidth + (buttonWidth / 2.0)
+            GrumpyButton4.center.x = (buttonWidth  * 2.0) + (buttonWidth / 2.0)
+            GrumpyButton9.center.x = (buttonWidth  * 3.0) + (buttonWidth / 2.0)
+            GrumpyButton14.center.x = buttonWidth / 2.0
             break
         default:
             break
@@ -319,34 +454,33 @@ class DontTouchTheGrumpyCatViewController: UIViewController {
         let randomNumber = arc4random() % 4
         switch(randomNumber) {
         case 0:
-            DogeButton4.center.x = 52
-            GrumpyButton10.center.x = 156
-            GrumpyButton11.center.x = 260
-            GrumpyButton12.center.x = 364
+            DogeButton5.center.x = buttonWidth / 2.0
+            GrumpyButton5.center.x = buttonWidth + (buttonWidth / 2.0)
+            GrumpyButton10.center.x = (buttonWidth  * 2.0) + (buttonWidth / 2.0)
+            GrumpyButton15.center.x = (buttonWidth  * 3.0) + (buttonWidth / 2.0)
             break
         case 1:
-            DogeButton4.center.x = 364
-            GrumpyButton10.center.x = 52
-            GrumpyButton11.center.x = 156
-            GrumpyButton12.center.x = 260
+            DogeButton5.center.x = (buttonWidth  * 3.0) + (buttonWidth / 2.0)
+            GrumpyButton5.center.x = buttonWidth / 2.0
+            GrumpyButton10.center.x = buttonWidth + (buttonWidth / 2.0)
+            GrumpyButton15.center.x = (buttonWidth  * 2.0) + (buttonWidth / 2.0)
             break
         case 2:
-            DogeButton4.center.x = 260
-            GrumpyButton10.center.x = 364
-            GrumpyButton11.center.x = 52
-            GrumpyButton12.center.x = 156
+            DogeButton5.center.x = (buttonWidth  * 2.0) + (buttonWidth / 2.0)
+            GrumpyButton5.center.x = (buttonWidth  * 3.0) + (buttonWidth / 2.0)
+            GrumpyButton10.center.x = buttonWidth / 2.0
+            GrumpyButton15.center.x = buttonWidth + (buttonWidth / 2.0)
             break
         case 3:
-            DogeButton4.center.x = 156
-            GrumpyButton10.center.x = 260
-            GrumpyButton11.center.x = 364
-            GrumpyButton12.center.x = 52
+            DogeButton5.center.x = buttonWidth + (buttonWidth / 2.0)
+            GrumpyButton5.center.x = (buttonWidth  * 2.0) + (buttonWidth / 2.0)
+            GrumpyButton10.center.x = (buttonWidth  * 3.0) + (buttonWidth / 2.0)
+            GrumpyButton15.center.x = buttonWidth / 2.0
             break
         default:
             break
         }
     }
-
     
     /*
     // MARK: - Navigation

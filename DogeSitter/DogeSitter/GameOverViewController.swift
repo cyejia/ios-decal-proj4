@@ -10,18 +10,27 @@ import UIKit
 
 class GameOverViewController: UIViewController {
     
+    let screenWidth = UIScreen.mainScreen().bounds.size.width
+    let screenHeight = UIScreen.mainScreen().bounds.size.height
+    
     var game = DontTouchTheGrumpyCatViewController()
+    var gameOverLabel = UILabel()
 
     override func viewDidLoad() { // change top 4 to var
         super.viewDidLoad()
 //        let highScoreDefault = NSUserDefaults.standardUserDefaults()
         let scoreDefault = NSUserDefaults.standardUserDefaults()
-        let highscoreDefault = NSUserDefaults.standardUserDefaults()
-        
-        self.view.backgroundColor = UIColor.blueColor()
         
         let score = scoreDefault.valueForKey("tempscore") as! NSInteger
-        let highscore = scoreDefault.valueForKey("highscore") as! NSInteger
+        
+        gameOverLabel = UILabel(frame: CGRect(x: 0, y: 0, width: screenWidth, height: screenHeight * 0.25))
+        gameOverLabel.text = "Game Over"
+        gameOverLabel.font = UIFont(name: "HelveticaNeue", size: 50.0)
+        gameOverLabel.textAlignment = .Center
+        gameOverLabel.center = CGPoint(x: screenWidth / 2.0, y: screenHeight * 0.25)
+        self.view.addSubview(gameOverLabel)
+        
+        self.view.backgroundColor = UIColor.whiteColor()
         
 //        var scoreLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 20))
 //        scoreLabel.center = CGPoint(x: self.view.frame.size.width * 0.985, y: 25)

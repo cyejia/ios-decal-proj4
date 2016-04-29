@@ -18,6 +18,7 @@
 		4578B4021CC99815001294FE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4578B4001CC99815001294FE /* LaunchScreen.storyboard */; };
 		4578B40D1CC99815001294FE /* DogeSitterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4578B40C1CC99815001294FE /* DogeSitterTests.swift */; };
 		4578B4181CC99815001294FE /* DogeSitterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4578B4171CC99815001294FE /* DogeSitterUITests.swift */; };
+		45C433DC1CD326C200F9A028 /* StartScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C433DB1CD326C200F9A028 /* StartScreenViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		4578B4131CC99815001294FE /* DogeSitterUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DogeSitterUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4578B4171CC99815001294FE /* DogeSitterUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogeSitterUITests.swift; sourceTree = "<group>"; };
 		4578B4191CC99815001294FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		45C433DB1CD326C200F9A028 /* StartScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartScreenViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +113,7 @@
 				4532ED7C1CD14DC50030867D /* Assets.xcassets */,
 				4578B3F91CC99815001294FE /* GameViewController.swift */,
 				4578B3FB1CC99815001294FE /* Main.storyboard */,
+				45C433DB1CD326C200F9A028 /* StartScreenViewController.swift */,
 				454685801CD095AC00CF06FF /* GameOverViewController.swift */,
 				4578B4001CC99815001294FE /* LaunchScreen.storyboard */,
 				4578B4031CC99815001294FE /* Info.plist */,
@@ -273,6 +276,7 @@
 				4529FB8E1CCDB3D800945312 /* DontTouchTheGrumpyCatViewController.swift in Sources */,
 				4578B3F81CC99815001294FE /* GameScene.swift in Sources */,
 				4578B3FA1CC99815001294FE /* GameViewController.swift in Sources */,
+				45C433DC1CD326C200F9A028 /* StartScreenViewController.swift in Sources */,
 				4578B3F41CC99815001294FE /* AppDelegate.swift in Sources */,
 				454685811CD095AC00CF06FF /* GameOverViewController.swift in Sources */,
 			);
@@ -420,7 +424,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = DogeSitter/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "ios-decal.DogeSitter";
+				PRODUCT_BUNDLE_IDENTIFIER = com.chen.DogeSitter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -434,7 +438,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = DogeSitter/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "ios-decal.DogeSitter";
+				PRODUCT_BUNDLE_IDENTIFIER = com.chen.DogeSitter;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
