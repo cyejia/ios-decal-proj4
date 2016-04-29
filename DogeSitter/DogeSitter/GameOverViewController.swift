@@ -18,7 +18,7 @@ class GameOverViewController: UIViewController {
         let scoreDefault = NSUserDefaults.standardUserDefaults()
         let highscoreDefault = NSUserDefaults.standardUserDefaults()
         
-        self.view.backgroundColor = UIColor.whiteColor()
+        self.view.backgroundColor = UIColor.blueColor()
         
         let score = scoreDefault.valueForKey("tempscore") as! NSInteger
         let highscore = scoreDefault.valueForKey("highscore") as! NSInteger
