@@ -16,6 +16,7 @@ class GameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
         userDefaults.setValue(Int(0), forKey: "currentLevel")
         if (userDefaults.valueForKey("highScores") == nil) {
             let noScores = NSMutableArray()
@@ -69,6 +70,8 @@ class GameViewController: UIViewController {
             
             /* Set the scale mode to scale to fit the window */
             scene!.scaleMode = .AspectFill
+            scene!.size = self.view.frame.size
+
             
             skView.presentScene(scene)
         }
