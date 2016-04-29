@@ -50,7 +50,7 @@ class DontTouchTheGrumpyCatViewController: UIViewController {
         super.viewDidLoad()
         // how do i make the buttons start off random instead of a straight line?
         var highscoreDefault = NSUserDefaults.standardUserDefaults()
-        count = 10
+        count = 5
         if (highscoreDefault.valueForKey("highscore") != nil) {
             highscore = highscoreDefault.valueForKey("highscore") as! NSInteger
 //            NSLog("\(highscore)")
@@ -82,7 +82,7 @@ class DontTouchTheGrumpyCatViewController: UIViewController {
         
         score = 0 //should this change later on?
         
-        var timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: #selector(DontTouchTheGrumpyCatViewController.update), userInfo: nil, repeats: true)
+        timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: #selector(DontTouchTheGrumpyCatViewController.update), userInfo: nil, repeats: true)
     }
     
     func update() {
