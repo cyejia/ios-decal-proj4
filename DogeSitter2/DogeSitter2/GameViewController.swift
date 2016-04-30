@@ -45,32 +45,18 @@ class GameViewController: UIViewController {
         let previousLevel = userDefaults.valueForKey("currentLevel") as! Int
         userDefaults.setValue(Int(previousLevel + 1), forKey: "currentLevel")
         
-//        let whichGame = arc4random_uniform(3)
-        let whichGame = 0
-        var scene : SKScene?
-        switch (whichGame) {
-        case 0:
-            scene = Game1(fileNamed: "GameScene")
-        case 1:
-            scene = Game2(fileNamed: "GameScene")
-        case 2:
-            scene = Game3(fileNamed: "GameScene")
-        default:
-            scene = Game1(fileNamed: "GameScene")
-        }
-        
-        if (scene != nil) {
+        if let scene = Game1(fileNamed: "GameScene") {
             // Configure the view.
             let skView = self.view as! SKView
-            skView.showsFPS = true
-            skView.showsNodeCount = true
+            skView.showsFPS = false
+            skView.showsNodeCount = false
             
             /* Sprite Kit applies additional optimizations to improve rendering performance */
             skView.ignoresSiblingOrder = true
             
             /* Set the scale mode to scale to fit the window */
-            scene!.scaleMode = .AspectFill
-            scene!.size = self.view.frame.size
+            scene.scaleMode = .AspectFill
+            scene.size = self.view.frame.size
 
             
             skView.presentScene(scene)
