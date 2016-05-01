@@ -22,16 +22,21 @@ doge.
       and the player must avoid the Grumpy Cats by tapping the Doges in sight. 
       The grid will move down as the player taps more Doges. The objective is 
       to tap a certain amount of Doges before time is up.
-
+* Instructions included
 * Your score is reflected by how many mini game rounds you finish
 * Show score and keep track of high score
 
 ## Control Flow
-* The user will choose "New Game" and then will move to the game screen.
-* The first game will begin, and the user will play for a limited time
-* After the initial time expires, another minigame will be rotated to the 
-  screen.
-* This rotation continues, with each cycle making each game more difficult
+* The user will be presented with the Start Scree which enables returning
+  users to choose "Start" or "Instructions"
+* If "Instructons" is touched, then a new view displaying the rules will
+  appear. Players may navigate back to the start screen.
+* When the "Start" button is pressed, one of the games at random will begin,
+  and the user will play for a limited time or until he/she loses
+* After the initial time expires or the player has met the goal number, 
+  another minigame will be rotated to the screen.
+* This random rotation continues, with each rotation making each game more 
+  difficult
 * The player loses if at any point if they lose in any of the minigames:
     1. A ball falls in minigame 1.
     2. Frisbee misses dog in minigame 2.
@@ -39,9 +44,10 @@ doge.
     4. Fail to reach target when time runs out in minigames 2 and 3.
 * Games get harder as player progresses
     1. More balls fall from the top of the screen
-    2. Doge starts moving so the player must plan the frisbee throw accordingly
+    2. Doge starts moving (faster) so the player must plan the frisbee 
+       throw accordingly
     3. Less time to pick the Doge tile
-* When player loses, an window pops up showing the highscore, your most recent
+* When player loses, an window pops up showing the highscore, the most recent
   game score, and a play again button.
 
 ## Implementation
