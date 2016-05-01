@@ -16,12 +16,13 @@ class GameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if (userDefaults.valueForKey("highScore") == nil) {
+            userDefaults.setValue(Int(0), forKey: "highScore")
+        }
         
         userDefaults.setValue(Int(0), forKey: "currentLevel")
-        if (userDefaults.valueForKey("highScores") == nil) {
-            let noScores = NSMutableArray()
-            userDefaults.setValue(noScores, forKey: "highScores")
-        }
+
+
         
         newMiniGame()
         

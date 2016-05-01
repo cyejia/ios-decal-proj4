@@ -27,7 +27,7 @@ class Game1: SKScene, SKPhysicsContactDelegate {
     var curGame = Int()
 
     var gameTimer = NSTimer()
-    var timerLabel = UILabel()
+    var timerLabel = SKLabelNode()
     var seconds = Int()
     
     var ground = SKSpriteNode()
@@ -64,7 +64,8 @@ class Game1: SKScene, SKPhysicsContactDelegate {
     func newGame() {
         self.removeAllActions()
         self.removeAllChildren()
-//        userDefaults.setValue(Int(0), forKey: "currentLevel")
+        ballTimer.invalidate()
+        gameTimer.invalidate()
         createUniversalScene()
     }
     
@@ -74,14 +75,17 @@ class Game1: SKScene, SKPhysicsContactDelegate {
         
         let blueColor = CIColor(red: 56/256, green: 237/256, blue: 228/256)
         
-        self.backgroundColor = SKColor(CIColor: blueColor)
+        if (curGame == 2) {
+            self.backgroundColor = SKColor.whiteColor()
+        } else {
+            self.backgroundColor = SKColor(CIColor: blueColor)
+        }
         seconds = 10
-        timerLabel = UILabel(frame: CGRect(x: self.frame.width / 2 - 25, y: 0, width: 50, height: 50))
-        timerLabel.textColor = SKColor.magentaColor()
-        timerLabel.textAlignment = NSTextAlignment.Center
-        timerLabel.font = UIFont(name: "Arial Rounded MT Bold", size: 30)
+        timerLabel = SKLabelNode(fontNamed: "Arial Rounded MT Bold")
+        timerLabel.fontColor = UIColor.magentaColor()
         timerLabel.text = "\(seconds)"
-        self.view!.addSubview(timerLabel)
+        timerLabel.position = CGPoint(x: 30, y: self.frame.height - 50)
+        self.addChild(timerLabel)
         
         self.physicsWorld.contactDelegate = self
         self.physicsWorld.gravity = CGVectorMake(0, -8.0)
@@ -120,10 +124,28 @@ class Game1: SKScene, SKPhysicsContactDelegate {
         self.addChild(leftWall)
         self.addChild(rightWall)
         
-        startBounceGame()
-        
+        randomGame()
         
         gameTimer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: #selector(self.updateTimer), userInfo: nil, repeats: true)
+    }
+    
+    func randomGame() {
+        let previousLevel = userDefaults.valueForKey("currentLevel") as! Int
+        userDefaults.setValue(Int(previousLevel + 1), forKey: "currentLevel")
+
+        let randomGameID = arc4random_uniform(3)
+        switch randomGameID {
+        case 0:
+            curGame = 0
+            startBounceGame()
+//        case 1:
+//            startFrisbeeGame()
+//        case 2:
+//            startCatGame()
+        default:
+            startBounceGame()
+        }
+
     }
     
     func updateTimer() {
@@ -135,15 +157,18 @@ class Game1: SKScene, SKPhysicsContactDelegate {
         if seconds == 0 {
             // start next game
             print("Level completed!")
+            newGame()
         }
     }
     
+    
+    
     func createScoreTable() {
-        scoreTable = SKSpriteNode(color: SKColor.greenColor(), size: CGSize(width: 200, height: 100))
-        scoreTable.position = CGPoint(x: self.frame.width/2 - 200, y: self.frame.height / 2 - 50)
+        scoreTable = SKSpriteNode(color: SKColor.whiteColor(), size: CGSize(width: self.frame.width - 50, height: 300))
+        scoreTable.position = CGPoint(x: self.frame.width / 2, y: self.frame.height / 2)
         scoreTable.zPosition = 5
-        restartButton = SKSpriteNode(color: SKColor.cyanColor(), size: CGSize(width: 100, height: 20))
-        restartButton.position = CGPoint(x: self.frame.width/2 - 50, y: self.frame.height / 2 - 50)
+        restartButton = SKSpriteNode(color: SKColor.grayColor(), size: CGSize(width: self.frame.width - 50, height: 100))
+        restartButton.position = CGPoint(x: self.frame.width/2, y: self.frame.height / 2 - 100)
         restartButton.zPosition = 6
         
         self.addChild(scoreTable)
@@ -165,7 +190,10 @@ class Game1: SKScene, SKPhysicsContactDelegate {
         if ((firstObject.categoryBitMask == PhysicsCategory.ground && secondObject.categoryBitMask == PhysicsCategory.ball) ||
             (firstObject.categoryBitMask == PhysicsCategory.ball && secondObject.categoryBitMask == PhysicsCategory.ground)) {
             print("Game over")
+            ballTimer.invalidate()
+            gameTimer.invalidate()
             gameOver = true
+            createScoreTable()
         } else if ((firstObject.categoryBitMask == PhysicsCategory.doge && secondObject.categoryBitMask == PhysicsCategory.ball) ||
                    (firstObject.categoryBitMask == PhysicsCategory.ball && secondObject.categoryBitMask == PhysicsCategory.doge)) {
             if (firstObject.categoryBitMask == PhysicsCategory.ball) {
