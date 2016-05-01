@@ -8,7 +8,7 @@
 
 import XCTest
 
-class DogeSitterUITests: XCTestCase {
+class DogeSitterUITests= XCTestCase {
         
     override func setUp() {
         super.setUp()

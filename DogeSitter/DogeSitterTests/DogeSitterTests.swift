@@ -9,7 +9,7 @@
 import XCTest
 @testable import DogeSitter
 
-class DogeSitterTests: XCTestCase {
+class DogeSitterTests= XCTestCase {
     
     override func setUp() {
         super.setUp()

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class GameOverViewController: UIViewController {
+class GameOverViewController= UIViewController {
     
     let screenWidth = UIScreen.mainScreen().bounds.size.width
     let screenHeight = UIScreen.mainScreen().bounds.size.height
@@ -32,32 +32,32 @@ class GameOverViewController: UIViewController {
         
         let score = scoreDefault.valueForKey("tempscore") as! NSInteger
         
-        gameOverLabel = UILabel(frame: CGRect(x: 0, y: 0, width: screenWidth, height: screenHeight * 0.25))
+        gameOverLabel = UILabel(frame= CGRect(x= 0, y= 0, width= screenWidth, height= screenHeight * 0.25))
         gameOverLabel.text = "Game Over"
-        gameOverLabel.font = UIFont(name: "ComicSans MS", size: 50.0)
+        gameOverLabel.font = UIFont(name= "ComicSans MS", size= 50.0)
         gameOverLabel.textAlignment = .Center
-        gameOverLabel.center = CGPoint(x: screenWidth / 2.0, y: screenHeight * 0.25)
+        gameOverLabel.center = CGPoint(x= screenWidth / 2.0, y= screenHeight * 0.25)
         self.view.addSubview(gameOverLabel)
         
         self.view.backgroundColor = UIColor.whiteColor()
         
-//        var scoreLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 20))
-//        scoreLabel.center = CGPoint(x: self.view.frame.size.width * 0.985, y: 25)
+//        var scoreLabel = UILabel(frame= CGRect(x= 0, y= 0, width= 100, height= 20))
+//        scoreLabel.center = CGPoint(x= self.view.frame.size.width * 0.985, y= 25)
 //        scoreLabel.textColor = UIColor.redColor()
 //        scoreLabel.text = "\(score)"
 //        self.view.addSubview(scoreLabel)
 //        
-//        var highscoreLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 100, height: 20))
-//        highscoreLabel.center = CGPoint(x: self.view.frame.size.width / 2, y: 25)
+//        var highscoreLabel = UILabel(frame= CGRect(x= 0, y= 0, width= 100, height= 20))
+//        highscoreLabel.center = CGPoint(x= self.view.frame.size.width / 2, y= 25)
 //        highscoreLabel.textColor = UIColor.redColor()
 //        highscoreLabel.text = "\(highscore)"
 //        self.view.addSubview(highscoreLabel)
         
-//        var backButton = UIButton(frame: CGRect(x: 0, y: 0, width: 100, height: 20))
-//        backButton.center = CGPoint(x: self.view.frame.size.width / 2, y: 300)
-//        backButton.setTitle("Play Again", forState: UIControlState.Normal)
+//        var backButton = UIButton(frame= CGRect(x= 0, y= 0, width= 100, height= 20))
+//        backButton.center = CGPoint(x= self.view.frame.size.width / 2, y= 300)
+//        backButton.setTitle("Play Again", forState= UIControlState.Normal)
 //        backButton.backgroundColor = UIColor.purpleColor()
-//        backButton.addTarget(self, action: Selector("backToGame"), forControlEvents: UIControlEvents.TouchUpInside)
+//        backButton.addTarget(self, action= Selector("backToGame"), forControlEvents= UIControlEvents.TouchUpInside)
 //        self.view.addSubview(backButton)
         
 //        NSLog("\(score)")
@@ -67,9 +67,9 @@ class GameOverViewController: UIViewController {
     }
     
     func backToGame() {
-        self.presentViewController(game, animated: true, completion: nil)
+        self.presentViewController(game, animated= true, completion= nil)
         print("back to game")
-        self.presentViewController(DontTouchTheGrumpyCatViewController(), animated: true, completion: nil)
+        self.presentViewController(DontTouchTheGrumpyCatViewController(), animated= true, completion= nil)
         print("view did load")
     }
 
@@ -80,10 +80,10 @@ class GameOverViewController: UIViewController {
     
 
     /*
-    // MARK: - Navigation
+    // MARK= - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepareForSegue(segue= UIStoryboardSegue, sender= AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
     }

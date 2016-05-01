@@ -20,6 +20,7 @@
 		4578B40D1CC99815001294FE /* DogeSitterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4578B40C1CC99815001294FE /* DogeSitterTests.swift */; };
 		4578B4181CC99815001294FE /* DogeSitterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4578B4171CC99815001294FE /* DogeSitterUITests.swift */; };
 		45C433DC1CD326C200F9A028 /* StartScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45C433DB1CD326C200F9A028 /* StartScreenViewController.swift */; };
+		45CE7AE21CD5CE54008E220D /* DontTouchTheGrumpyCatGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45CE7AE11CD5CE54008E220D /* DontTouchTheGrumpyCatGameScene.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		4578B4171CC99815001294FE /* DogeSitterUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogeSitterUITests.swift; sourceTree = "<group>"; };
 		4578B4191CC99815001294FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		45C433DB1CD326C200F9A028 /* StartScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartScreenViewController.swift; sourceTree = "<group>"; };
+		45CE7AE11CD5CE54008E220D /* DontTouchTheGrumpyCatGameScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DontTouchTheGrumpyCatGameScene.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +114,7 @@
 				4578B3F31CC99815001294FE /* AppDelegate.swift */,
 				4578B3F51CC99815001294FE /* GameScene.sks */,
 				4578B3F71CC99815001294FE /* GameScene.swift */,
+				45CE7AE11CD5CE54008E220D /* DontTouchTheGrumpyCatGameScene.swift */,
 				453756191CD569E100E921B0 /* comicsans.ttf */,
 				4532ED7C1CD14DC50030867D /* Assets.xcassets */,
 				4578B3F91CC99815001294FE /* GameViewController.swift */,
@@ -282,6 +285,7 @@
 				4578B3FA1CC99815001294FE /* GameViewController.swift in Sources */,
 				45C433DC1CD326C200F9A028 /* StartScreenViewController.swift in Sources */,
 				4578B3F41CC99815001294FE /* AppDelegate.swift in Sources */,
+				45CE7AE21CD5CE54008E220D /* DontTouchTheGrumpyCatGameScene.swift in Sources */,
 				454685811CD095AC00CF06FF /* GameOverViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
