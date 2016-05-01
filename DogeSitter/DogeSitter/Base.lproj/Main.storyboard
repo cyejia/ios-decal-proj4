@@ -1,9 +1,32 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BV1-FR-VrT">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Pau-Ze-IQX">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="comicsans.ttf">
+            <string>ComicSansMS</string>
+            <string>ComicSansMS</string>
+            <string>ComicSansMS</string>
+            <string>ComicSansMS</string>
+            <string>ComicSansMS</string>
+            <string>ComicSansMS</string>
+            <string>ComicSansMS</string>
+            <string>ComicSansMS</string>
+            <string>ComicSansMS</string>
+            <string>ComicSansMS</string>
+            <string>ComicSansMS</string>
+            <string>ComicSansMS</string>
+            <string>ComicSansMS</string>
+            <string>ComicSansMS</string>
+            <string>ComicSansMS</string>
+            <string>ComicSansMS</string>
+            <string>ComicSansMS</string>
+            <string>ComicSansMS</string>
+        </mutableArray>
+    </customFonts>
     <scenes>
         <!--Game View Controller-->
         <scene sceneID="tXr-a1-R10">
@@ -25,14 +48,269 @@
             <point key="canvasLocation" x="388" y="-528"/>
         </scene>
         <!--Start Screen View Controller-->
-        <scene sceneID="ttH-b4-aHi">
+        <scene sceneID="W4s-Co-wbu">
             <objects>
-                <viewController id="ktO-IA-djn" customClass="StartScreenViewController" customModule="DogeSitter" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="YhZ-Es-MdF" customClass="StartScreenViewController" customModule="DogeSitter" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Mn6-pb-KOZ"/>
+                        <viewControllerLayoutGuide type="bottom" id="R2B-5i-aTQ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="PCx-Cv-5yA">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dogeStart" translatesAutoresizingMaskIntoConstraints="NO" id="IF5-qG-YFf">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DogeSitter" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gD4-Wh-9Pb">
+                                <rect key="frame" x="20" y="72" width="374" height="103"/>
+                                <fontDescription key="fontDescription" name="ComicSansMS" family="Comic Sans MS" pointSize="50"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lwm-Ga-12h">
+                                <rect key="frame" x="127" y="243" width="160" height="41"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="160" id="G6l-gc-5wg"/>
+                                    <constraint firstAttribute="height" constant="41" id="uoH-st-OPc"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="ComicSansMS" family="Comic Sans MS" pointSize="25"/>
+                                <state key="normal" title="Instructions">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="TrB-Ei-DDM" kind="show" id="w0B-sI-VfE"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ftY-0F-5jY">
+                                <rect key="frame" x="172" y="200" width="71" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="71" id="jLh-3D-Kpm"/>
+                                    <constraint firstAttribute="height" constant="35" id="okC-KP-Z0F"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="ComicSansMS" family="Comic Sans MS" pointSize="25"/>
+                                <state key="normal" title="Start">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="CJ0-sf-sim" kind="presentation" id="Pz9-nK-UVe"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ftY-0F-5jY" firstAttribute="centerX" secondItem="Lwm-Ga-12h" secondAttribute="centerX" id="0VS-q7-gVg"/>
+                            <constraint firstItem="R2B-5i-aTQ" firstAttribute="top" secondItem="Lwm-Ga-12h" secondAttribute="bottom" constant="452" id="3Bo-8p-qZz"/>
+                            <constraint firstItem="gD4-Wh-9Pb" firstAttribute="top" secondItem="Mn6-pb-KOZ" secondAttribute="bottom" constant="8" symbolic="YES" id="7am-A0-F2V"/>
+                            <constraint firstItem="gD4-Wh-9Pb" firstAttribute="leading" secondItem="PCx-Cv-5yA" secondAttribute="leadingMargin" id="IVS-7U-4hL"/>
+                            <constraint firstItem="gD4-Wh-9Pb" firstAttribute="centerX" secondItem="ftY-0F-5jY" secondAttribute="centerX" id="JTv-JW-viy"/>
+                            <constraint firstItem="IF5-qG-YFf" firstAttribute="leading" secondItem="PCx-Cv-5yA" secondAttribute="leading" id="XE7-BJ-COO"/>
+                            <constraint firstItem="Lwm-Ga-12h" firstAttribute="top" secondItem="ftY-0F-5jY" secondAttribute="bottom" constant="8" symbolic="YES" id="c8I-HY-Q9o"/>
+                            <constraint firstItem="IF5-qG-YFf" firstAttribute="centerX" secondItem="Lwm-Ga-12h" secondAttribute="centerX" id="oVs-ye-FCd"/>
+                            <constraint firstItem="ftY-0F-5jY" firstAttribute="top" secondItem="gD4-Wh-9Pb" secondAttribute="bottom" constant="25" id="s3Q-ga-Yb7"/>
+                            <constraint firstItem="IF5-qG-YFf" firstAttribute="bottom" secondItem="R2B-5i-aTQ" secondAttribute="top" id="zfx-qI-EyQ"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="JDv-X0-fSu"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="bIV-lB-J35" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Jpd-SJ-jxT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="388" y="302"/>
+            <point key="canvasLocation" x="952" y="302"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="upH-Of-y7Q">
+            <objects>
+                <viewController id="TrB-Ei-DDM" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Ksn-KN-SkR"/>
+                        <viewControllerLayoutGuide type="bottom" id="H0b-sV-IrS"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Ld6-tQ-gYn">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dogeBackground" translatesAutoresizingMaskIntoConstraints="NO" id="Rcu-Gb-pfn">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don't Touch the Grumpy Cat" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MKR-5E-R0R">
+                                <rect key="frame" x="20" y="414" width="374" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="fIO-WA-TFR"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="ComicSansMS" family="Comic Sans MS" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Frisbee Catch" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r5m-up-Rkr">
+                                <rect key="frame" x="20" y="526" width="374" height="28"/>
+                                <fontDescription key="fontDescription" name="ComicSansMS" family="Comic Sans MS" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Flick the frisbee for doge to catch. Doge needs to" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RA5-cN-LZs">
+                                <rect key="frame" x="20" y="547" width="374" height="27"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="27" id="seh-Mn-QXT"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="ComicSansMS" family="Comic Sans MS" pointSize="15"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Touch the set amount of doge tiles as fast as you " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="epA-57-G2S">
+                                <rect key="frame" x="20" y="439" width="374" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="25" id="jM4-5E-l2w"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="ComicSansMS" family="Comic Sans MS" pointSize="15"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="before the time runs out! The amount of doge tiles" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DV3-gn-6hr">
+                                <rect key="frame" x="20" y="456" width="374" height="27"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="27" id="PKv-dM-aHF"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="ComicSansMS" family="Comic Sans MS" pointSize="15"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="you need to press will increase as you conquer each " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ar9-L9-hU5">
+                                <rect key="frame" x="20" y="474" width="374" height="27"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="27" id="l4d-ia-xoO"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="ComicSansMS" family="Comic Sans MS" pointSize="15"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="level." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wki-70-CCm">
+                                <rect key="frame" x="19" y="493" width="374" height="27"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="27" id="znw-Y6-KXu"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="ComicSansMS" family="Comic Sans MS" pointSize="15"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="catch the set amount of frisbees before the time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SeG-fo-IGv">
+                                <rect key="frame" x="20" y="566" width="374" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="KdL-FI-7dN"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="ComicSansMS" family="Comic Sans MS" pointSize="15"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="runs out." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BMc-PS-meL">
+                                <rect key="frame" x="20" y="582" width="374" height="21"/>
+                                <fontDescription key="fontDescription" name="ComicSansMS" family="Comic Sans MS" pointSize="15"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="screen left/right so that doge can catch each ball." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lM9-ST-1V1">
+                                <rect key="frame" x="20" y="664" width="374" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="jsW-Is-Nni"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="ComicSansMS" family="Comic Sans MS" pointSize="15"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The game will end if the ball misses doge and hits the" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HIU-Tv-Yrh">
+                                <rect key="frame" x="19" y="682" width="375" height="21"/>
+                                <fontDescription key="fontDescription" name="ComicSansMS" family="Comic Sans MS" pointSize="15"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ground." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6hM-9D-8HQ">
+                                <rect key="frame" x="20" y="700" width="374" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="f2h-Yv-bpF"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="ComicSansMS" family="Comic Sans MS" pointSize="15"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fetch" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3ch-2V-hNx">
+                                <rect key="frame" x="20" y="617" width="374" height="42"/>
+                                <fontDescription key="fontDescription" name="ComicSansMS" family="Comic Sans MS" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Balls will drop from the top of the screen. Tilt the" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gCp-0m-9Ws">
+                                <rect key="frame" x="20" y="645" width="374" height="21"/>
+                                <fontDescription key="fontDescription" name="ComicSansMS" family="Comic Sans MS" pointSize="15"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Instructions" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NmC-Ib-j6V">
+                                <rect key="frame" x="120" y="49" width="173" height="64"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="17f-vK-a6r"/>
+                                    <constraint firstAttribute="width" constant="173" id="9DX-Kg-Bwb"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="ComicSansMS" family="Comic Sans MS" pointSize="25"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ar9-L9-hU5" firstAttribute="top" secondItem="epA-57-G2S" secondAttribute="bottom" constant="10" id="0uF-3G-uDc"/>
+                            <constraint firstItem="NmC-Ib-j6V" firstAttribute="top" secondItem="Ld6-tQ-gYn" secondAttribute="topMargin" constant="49" id="1LA-wA-Ct2"/>
+                            <constraint firstItem="DV3-gn-6hr" firstAttribute="leading" secondItem="ar9-L9-hU5" secondAttribute="leading" id="6iL-s1-PaY"/>
+                            <constraint firstItem="Wki-70-CCm" firstAttribute="top" secondItem="DV3-gn-6hr" secondAttribute="bottom" constant="10" id="7fg-G4-xng"/>
+                            <constraint firstItem="NmC-Ib-j6V" firstAttribute="centerX" secondItem="MKR-5E-R0R" secondAttribute="centerX" id="8xg-nx-Y2J"/>
+                            <constraint firstItem="6hM-9D-8HQ" firstAttribute="top" secondItem="lM9-ST-1V1" secondAttribute="bottom" constant="15" id="B9x-RE-SLx"/>
+                            <constraint firstItem="RA5-cN-LZs" firstAttribute="leading" secondItem="SeG-fo-IGv" secondAttribute="leading" id="BG4-iD-Wxn"/>
+                            <constraint firstItem="r5m-up-Rkr" firstAttribute="trailing" secondItem="RA5-cN-LZs" secondAttribute="trailing" id="BXF-Fm-dEM"/>
+                            <constraint firstItem="gCp-0m-9Ws" firstAttribute="top" secondItem="BMc-PS-meL" secondAttribute="bottom" constant="42" id="BZ6-UY-1wd"/>
+                            <constraint firstItem="SeG-fo-IGv" firstAttribute="top" secondItem="r5m-up-Rkr" secondAttribute="bottom" constant="12" id="DnM-C0-el3"/>
+                            <constraint firstItem="r5m-up-Rkr" firstAttribute="top" secondItem="Wki-70-CCm" secondAttribute="bottom" constant="6" id="EEb-v8-uER"/>
+                            <constraint firstItem="BMc-PS-meL" firstAttribute="leading" secondItem="3ch-2V-hNx" secondAttribute="leading" id="F6A-2x-dwG"/>
+                            <constraint firstItem="MKR-5E-R0R" firstAttribute="leading" secondItem="epA-57-G2S" secondAttribute="leading" id="GwL-ca-pBr"/>
+                            <constraint firstItem="lM9-ST-1V1" firstAttribute="centerX" secondItem="HIU-Tv-Yrh" secondAttribute="centerX" id="H6q-EQ-2DB"/>
+                            <constraint firstItem="DV3-gn-6hr" firstAttribute="top" secondItem="MKR-5E-R0R" secondAttribute="bottom" constant="7" id="HoM-6y-RL7"/>
+                            <constraint firstItem="epA-57-G2S" firstAttribute="trailing" secondItem="DV3-gn-6hr" secondAttribute="trailing" id="In7-Wv-Fwg"/>
+                            <constraint firstItem="MKR-5E-R0R" firstAttribute="trailing" secondItem="epA-57-G2S" secondAttribute="trailing" id="Kjm-HI-94Z"/>
+                            <constraint firstItem="3ch-2V-hNx" firstAttribute="leading" secondItem="gCp-0m-9Ws" secondAttribute="leading" id="KkK-Fj-qMB"/>
+                            <constraint firstItem="H0b-sV-IrS" firstAttribute="top" secondItem="HIU-Tv-Yrh" secondAttribute="bottom" constant="33" id="OPu-KM-AJF"/>
+                            <constraint firstItem="r5m-up-Rkr" firstAttribute="leading" secondItem="RA5-cN-LZs" secondAttribute="leading" id="PL5-9j-dFL"/>
+                            <constraint firstItem="3ch-2V-hNx" firstAttribute="top" secondItem="SeG-fo-IGv" secondAttribute="bottom" constant="30" id="PVi-eT-Atx"/>
+                            <constraint firstItem="ar9-L9-hU5" firstAttribute="trailing" secondItem="r5m-up-Rkr" secondAttribute="trailing" id="UfF-tZ-kff"/>
+                            <constraint firstItem="gCp-0m-9Ws" firstAttribute="leading" secondItem="lM9-ST-1V1" secondAttribute="leading" id="X73-2B-R58"/>
+                            <constraint firstItem="lM9-ST-1V1" firstAttribute="top" secondItem="3ch-2V-hNx" secondAttribute="bottom" constant="5" id="Yhw-xN-qiL"/>
+                            <constraint firstItem="RA5-cN-LZs" firstAttribute="top" secondItem="Wki-70-CCm" secondAttribute="bottom" constant="27" id="b5x-ll-AHk"/>
+                            <constraint firstItem="ar9-L9-hU5" firstAttribute="leading" secondItem="r5m-up-Rkr" secondAttribute="leading" id="bME-YK-amr"/>
+                            <constraint firstItem="3ch-2V-hNx" firstAttribute="trailing" secondItem="gCp-0m-9Ws" secondAttribute="trailing" id="bcp-KJ-o4b"/>
+                            <constraint firstItem="epA-57-G2S" firstAttribute="leading" secondItem="DV3-gn-6hr" secondAttribute="leading" id="cwg-TR-88E"/>
+                            <constraint firstItem="SeG-fo-IGv" firstAttribute="trailing" secondItem="BMc-PS-meL" secondAttribute="trailing" id="d01-tq-9To"/>
+                            <constraint firstItem="HIU-Tv-Yrh" firstAttribute="top" secondItem="gCp-0m-9Ws" secondAttribute="bottom" constant="16" id="dN4-Te-ePC"/>
+                            <constraint firstItem="Wki-70-CCm" firstAttribute="centerX" secondItem="HIU-Tv-Yrh" secondAttribute="centerX" id="eN1-ed-TkG"/>
+                            <constraint firstItem="BMc-PS-meL" firstAttribute="top" secondItem="RA5-cN-LZs" secondAttribute="bottom" constant="8" symbolic="YES" id="fba-25-avD"/>
+                            <constraint firstItem="gCp-0m-9Ws" firstAttribute="trailing" secondItem="lM9-ST-1V1" secondAttribute="trailing" id="geC-83-DWm"/>
+                            <constraint firstItem="Rcu-Gb-pfn" firstAttribute="centerX" secondItem="NmC-Ib-j6V" secondAttribute="centerX" id="h14-T3-fdH"/>
+                            <constraint firstItem="DV3-gn-6hr" firstAttribute="trailing" secondItem="ar9-L9-hU5" secondAttribute="trailing" id="hin-22-fjK"/>
+                            <constraint firstItem="BMc-PS-meL" firstAttribute="trailing" secondItem="3ch-2V-hNx" secondAttribute="trailing" id="idv-KI-95b"/>
+                            <constraint firstItem="lM9-ST-1V1" firstAttribute="trailing" secondItem="HIU-Tv-Yrh" secondAttribute="trailing" id="nnK-QD-Wpv"/>
+                            <constraint firstItem="HIU-Tv-Yrh" firstAttribute="trailing" secondItem="6hM-9D-8HQ" secondAttribute="trailing" id="oBX-Z5-zb1"/>
+                            <constraint firstItem="3ch-2V-hNx" firstAttribute="top" secondItem="BMc-PS-meL" secondAttribute="bottom" constant="14" id="p2x-La-Xm3"/>
+                            <constraint firstItem="Rcu-Gb-pfn" firstAttribute="bottom" secondItem="H0b-sV-IrS" secondAttribute="top" id="p6j-6K-nep"/>
+                            <constraint firstItem="r5m-up-Rkr" firstAttribute="top" secondItem="ar9-L9-hU5" secondAttribute="bottom" constant="25" id="r92-gA-lBd"/>
+                            <constraint firstItem="Wki-70-CCm" firstAttribute="leading" secondItem="HIU-Tv-Yrh" secondAttribute="leading" id="rCE-hN-ymp"/>
+                            <constraint firstItem="RA5-cN-LZs" firstAttribute="trailing" secondItem="SeG-fo-IGv" secondAttribute="trailing" id="uMQ-p1-cr0"/>
+                            <constraint firstItem="SeG-fo-IGv" firstAttribute="leading" secondItem="BMc-PS-meL" secondAttribute="leading" id="uvf-O1-c5T"/>
+                            <constraint firstItem="Rcu-Gb-pfn" firstAttribute="leading" secondItem="Ld6-tQ-gYn" secondAttribute="leading" id="wGQ-TR-C3p"/>
+                            <constraint firstItem="H0b-sV-IrS" firstAttribute="top" secondItem="6hM-9D-8HQ" secondAttribute="bottom" constant="15" id="z2V-U7-i8Y"/>
+                            <constraint firstItem="lM9-ST-1V1" firstAttribute="leading" secondItem="6hM-9D-8HQ" secondAttribute="leading" id="zZ9-CI-0fT"/>
+                        </constraints>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GVt-If-IXT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="952" y="1176"/>
         </scene>
         <!--Dont Touch The Grumpy Cat View Controller-->
         <scene sceneID="dv8-Mn-a0N">
@@ -42,24 +320,40 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iWh-N4-G2m" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="951" y="302"/>
+            <point key="canvasLocation" x="1511" y="302"/>
         </scene>
         <!--Game Over View Controller-->
         <scene sceneID="YIh-2U-Ikh">
             <objects>
                 <viewController id="JYv-SY-4Zg" customClass="GameOverViewController" customModule="DogeSitter" customModuleProvider="target" sceneMemberID="viewController">
-                    <label key="view" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="0WO-aC-bZK">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZuZ-bb-qnD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1603" y="302"/>
+            <point key="canvasLocation" x="2055" y="302"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="CiA-4e-LSn">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Pau-Ze-IQX" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="7hm-Ao-AcS">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="YhZ-Es-MdF" kind="relationship" relationship="rootViewController" id="WAf-jy-oUn"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IaH-Kd-2Ds" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="388" y="302"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="dogeBackground" width="414" height="736"/>
+        <image name="dogeStart" width="414" height="736"/>
+    </resources>
 </document>

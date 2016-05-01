@@ -21,24 +21,24 @@ class StartScreenViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        backgroundImage = UIImageView(frame: CGRect(x: 0, y: 0, width: screenWidth, height: screenHeight))
-        backgroundImage.center = CGPoint(x: screenWidth / 2.0, y: screenHeight / 2.0)
-        backgroundImage.image = UIImage(named: "dogeStart.jpg")
-        print(backgroundImage.image)
-        self.view.addSubview(backgroundImage)
-        
-        titleLabel = UILabel(frame: CGRect(x: 0, y: 0, width: screenWidth, height: screenHeight / 5.0))
-        titleLabel.textAlignment = .Center
-        titleLabel.center = CGPoint(x: screenWidth / 2.0, y: screenHeight / 4.0)
-        titleLabel.text = "DogeSitter"
-        titleLabel.font = UIFont(name: "HelveticaNue", size: 50.0)
-        self.view.addSubview(titleLabel)
-        
-        beginButton = UIButton(frame: CGRect(x: 0, y: 0, width: screenWidth, height: screenHeight / 7.0))
-        beginButton.setTitle("Start", forState: .Normal)
-        beginButton.center = CGPoint(x: screenWidth / 2.0, y: (screenHeight / 4.0) + 30)
-        beginButton.addTarget(self, action: #selector(gameSegue), forControlEvents: .TouchUpInside)
-        self.view.addSubview(beginButton)
+//        backgroundImage = UIImageView(frame: CGRect(x: 0, y: 0, width: screenWidth, height: screenHeight))
+//        backgroundImage.center = CGPoint(x: screenWidth / 2.0, y: screenHeight / 2.0)
+//        backgroundImage.image = UIImage(named: "dogeStart.jpg")
+//        print(backgroundImage.image)
+//        self.view.addSubview(backgroundImage)
+//        
+//        titleLabel = UILabel(frame: CGRect(x: 0, y: 0, width: screenWidth, height: screenHeight / 5.0))
+//        titleLabel.textAlignment = .Center
+//        titleLabel.center = CGPoint(x: screenWidth / 2.0, y: screenHeight / 4.0)
+//        titleLabel.text = "DogeSitter"
+//        titleLabel.font = UIFont(name: "HelveticaNue", size: 50.0)
+//        self.view.addSubview(titleLabel)
+//        
+//        beginButton = UIButton(frame: CGRect(x: 0, y: 0, width: screenWidth, height: screenHeight / 7.0))
+//        beginButton.setTitle("Start", forState: .Normal)
+//        beginButton.center = CGPoint(x: screenWidth / 2.0, y: (screenHeight / 4.0) + 30)
+//        beginButton.addTarget(self, action: #selector(gameSegue), forControlEvents: .TouchUpInside)
+//        self.view.addSubview(beginButton)
         
         // Do any additional setup after loading the view.
     }
@@ -48,9 +48,9 @@ class StartScreenViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func gameSegue(sender: AnyObject?) {
-        self.presentViewController(DontTouchTheGrumpyCatViewController(), animated: true, completion: nil)
-    }
+//    @IBAction func gameSegue(sender: AnyObject?) {
+//        self.presentViewController(DontTouchTheGrumpyCatViewController(), animated: true, completion: nil)
+//    }
 
     /*
     // MARK: - Navigation
