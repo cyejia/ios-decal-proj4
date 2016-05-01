@@ -212,11 +212,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         if seconds > 0 {
             seconds -= 1
             timerLabel.text = "\(seconds)"
-            if (catScore == catDesiredScore) {
+            if ((curGame == 2) && (catScore >= catDesiredScore)) {
                 catScore = 0
                 newGame()
             }
-            if ((curGame == 1) && (score == desiredScore)) {
+            if ((curGame == 1) && (score >= desiredScore)) {
                 newGame()
             }
         }
