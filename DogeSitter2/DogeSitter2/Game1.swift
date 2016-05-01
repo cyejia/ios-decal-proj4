@@ -43,7 +43,6 @@ class Game1: SKScene, SKPhysicsContactDelegate {
     // BOUNCE GAME
     var dogeSpriteForBounceGame = SKSpriteNode()
     var motionManager = CMMotionManager()
-    var destX : CGFloat = 0.0
     var ballTimer = NSTimer()
     var numBalls = 0
     
@@ -58,6 +57,7 @@ class Game1: SKScene, SKPhysicsContactDelegate {
     
     override func didMoveToView(view: SKView) {
         newGame()
+        motionManager.startDeviceMotionUpdates()
 
     }
     
@@ -88,15 +88,15 @@ class Game1: SKScene, SKPhysicsContactDelegate {
         self.addChild(timerLabel)
         
         self.physicsWorld.contactDelegate = self
-        self.physicsWorld.gravity = CGVectorMake(0, -8.0)
+        self.physicsWorld.gravity = CGVectorMake(0, -4.0)
         
         ground = SKSpriteNode(imageNamed: "Transparent")
         ground.size = CGSize(width: self.frame.width, height: 1)
         ground.position = CGPoint(x: self.frame.width / 2, y: 0)
         ground.physicsBody = SKPhysicsBody(rectangleOfSize: ground.size)
         ground.physicsBody?.categoryBitMask = PhysicsCategory.ground
-        ground.physicsBody?.collisionBitMask = PhysicsCategory.ball
-        ground.physicsBody?.contactTestBitMask =  PhysicsCategory.ball
+        ground.physicsBody?.collisionBitMask = PhysicsCategory.ball | PhysicsCategory.doge
+        ground.physicsBody?.contactTestBitMask =  PhysicsCategory.ball | PhysicsCategory.doge
         ground.physicsBody?.affectedByGravity = false
         ground.physicsBody?.dynamic = false
         
@@ -105,8 +105,8 @@ class Game1: SKScene, SKPhysicsContactDelegate {
         leftWall.position = CGPoint(x: 0, y: self.frame.height / 2)
         leftWall.physicsBody = SKPhysicsBody(rectangleOfSize: leftWall.size)
         leftWall.physicsBody?.categoryBitMask = PhysicsCategory.side
-        leftWall.physicsBody?.collisionBitMask = PhysicsCategory.ball
-        leftWall.physicsBody?.contactTestBitMask =  PhysicsCategory.ball
+        leftWall.physicsBody?.collisionBitMask = PhysicsCategory.ball | PhysicsCategory.doge
+        leftWall.physicsBody?.contactTestBitMask =  PhysicsCategory.ball | PhysicsCategory.doge
         leftWall.physicsBody?.affectedByGravity = false
         leftWall.physicsBody?.dynamic = false
         
@@ -115,8 +115,8 @@ class Game1: SKScene, SKPhysicsContactDelegate {
         rightWall.position = CGPoint(x: self.frame.width - 5, y: self.frame.height / 2)
         rightWall.physicsBody = SKPhysicsBody(rectangleOfSize: rightWall.size)
         rightWall.physicsBody?.categoryBitMask = PhysicsCategory.side
-        rightWall.physicsBody?.collisionBitMask = PhysicsCategory.ball
-        rightWall.physicsBody?.contactTestBitMask =  PhysicsCategory.ball
+        rightWall.physicsBody?.collisionBitMask = PhysicsCategory.ball | PhysicsCategory.doge
+        rightWall.physicsBody?.contactTestBitMask =  PhysicsCategory.ball | PhysicsCategory.doge
         rightWall.physicsBody?.affectedByGravity = false
         rightWall.physicsBody?.dynamic = false
         
@@ -179,8 +179,14 @@ class Game1: SKScene, SKPhysicsContactDelegate {
     
     override func update(currentTime: CFTimeInterval) {
         /* Called before each frame is rendered */
-        let action = SKAction.moveToX(destX, duration: 0.5)
-        self.dogeSpriteForBounceGame.runAction(action)
+        if (curGame == 0) {
+            updateDogeForBounceGame()
+        }
+//        } else if (curGame == 1) {
+//            updateFrisbeeGame()
+//        } else {
+//            updateCatGame()
+//        }
     }
     
     func didBeginContact(contact: SKPhysicsContact) {
@@ -190,16 +196,16 @@ class Game1: SKScene, SKPhysicsContactDelegate {
         if ((firstObject.categoryBitMask == PhysicsCategory.ground && secondObject.categoryBitMask == PhysicsCategory.ball) ||
             (firstObject.categoryBitMask == PhysicsCategory.ball && secondObject.categoryBitMask == PhysicsCategory.ground)) {
             print("Game over")
-            ballTimer.invalidate()
-            gameTimer.invalidate()
-            gameOver = true
-            createScoreTable()
+//            ballTimer.invalidate()
+//            gameTimer.invalidate()
+//            gameOver = true
+//            createScoreTable()
         } else if ((firstObject.categoryBitMask == PhysicsCategory.doge && secondObject.categoryBitMask == PhysicsCategory.ball) ||
                    (firstObject.categoryBitMask == PhysicsCategory.ball && secondObject.categoryBitMask == PhysicsCategory.doge)) {
             if (firstObject.categoryBitMask == PhysicsCategory.ball) {
-                firstObject.applyImpulse(CGVectorMake(0, 70))
+                firstObject.applyImpulse(CGVectorMake(0, 60))
             } else {
-                secondObject.applyImpulse(CGVectorMake(0, 70))
+                secondObject.applyImpulse(CGVectorMake(0, 60))
             }
         }
     }
@@ -216,32 +222,22 @@ class Game1: SKScene, SKPhysicsContactDelegate {
         
         dogeSpriteForBounceGame.physicsBody = SKPhysicsBody(circleOfRadius: dogeSpriteForBounceGame.size.height/2)
         dogeSpriteForBounceGame.physicsBody?.categoryBitMask = PhysicsCategory.doge
-        dogeSpriteForBounceGame.physicsBody?.collisionBitMask = PhysicsCategory.ball
-        dogeSpriteForBounceGame.physicsBody?.contactTestBitMask =  PhysicsCategory.ball
+        dogeSpriteForBounceGame.physicsBody?.collisionBitMask = PhysicsCategory.ball | PhysicsCategory.side | PhysicsCategory.ground
+        dogeSpriteForBounceGame.physicsBody?.contactTestBitMask =  PhysicsCategory.ball | PhysicsCategory.side | PhysicsCategory.ground
         dogeSpriteForBounceGame.physicsBody?.affectedByGravity = false
-        dogeSpriteForBounceGame.physicsBody?.dynamic = false
+        dogeSpriteForBounceGame.physicsBody?.dynamic = true
         
         self.addChild(dogeSpriteForBounceGame)
         
-        self.destX = self.dogeSpriteForBounceGame.position.x
-        
-        if motionManager.accelerometerAvailable == true {
-            motionManager.startAccelerometerUpdatesToQueue(NSOperationQueue.currentQueue()!, withHandler:{
-                data, error in
-                
-                let currentX = self.dogeSpriteForBounceGame.position.x
-                
-                let newX = currentX + CGFloat(data!.acceleration.x * 100)
-                
-                if (newX > 0 && newX < self.frame.width) {
-                    self.destX = newX
-                }
-                
-            })
-            
-        }
-        
         startBallTimer()
+    }
+    
+    func updateDogeForBounceGame() {
+        if let roll = motionManager.deviceMotion?.attitude.roll {
+            dogeSpriteForBounceGame.physicsBody?.velocity = CGVectorMake(CGFloat(roll) * 500, 0)
+        }
+        dogeSpriteForBounceGame.position.y = 60
+        dogeSpriteForBounceGame.zRotation = 0
     }
     
     func loadBalls(timer:NSTimer) {
@@ -254,8 +250,8 @@ class Game1: SKScene, SKPhysicsContactDelegate {
             
             ballSprite.physicsBody = SKPhysicsBody(circleOfRadius: ballSprite.size.height/2)
             ballSprite.physicsBody?.categoryBitMask = PhysicsCategory.ball
-            ballSprite.physicsBody?.collisionBitMask = PhysicsCategory.doge | PhysicsCategory.side | PhysicsCategory.ground
-            ballSprite.physicsBody?.contactTestBitMask = PhysicsCategory.doge | PhysicsCategory.side | PhysicsCategory.ground
+            ballSprite.physicsBody?.collisionBitMask = PhysicsCategory.doge | PhysicsCategory.side | PhysicsCategory.ground | PhysicsCategory.ball
+            ballSprite.physicsBody?.contactTestBitMask = PhysicsCategory.doge | PhysicsCategory.side | PhysicsCategory.ground | PhysicsCategory.ball
             
             self.addChild(ballSprite)
             
