@@ -35,7 +35,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var gameOver = Bool()
     var scoreTable = SKSpriteNode()
+    var highScoreLabel = SKLabelNode()
     var restartButton = SKSpriteNode()
+    var restartButtonLabel = SKLabelNode()
     
     var ground = SKSpriteNode()
     var leftWall = SKSpriteNode()
@@ -62,6 +64,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var touching: Bool = false
     var score = 0
     var scoreLabel = SKLabelNode()
+    var desiredScore = 0
+    var desiredScoreLabel = SKLabelNode()
     
     var frisbeeSprite = SKSpriteNode()
     var dogeSpriteForFrisbeeGame = SKSpriteNode()
@@ -95,7 +99,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 
     var buttonWidth = CGFloat()
     var buttonHeight = CGFloat()
-    var desiredScore = 0
     
     
     
@@ -106,23 +109,21 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */
-        
+        curLevel = 0
         newGame()
         motionManager.startDeviceMotionUpdates()
-        
     }
     
     func newGame() {
+        gameOver = false
         self.removeAllActions()
         self.removeAllChildren()
         ballTimer.invalidate()
         gameTimer.invalidate()
-        curLevel = userDefaults.objectForKey("currentLevel") as! Int
         createUniversalScene()
     }
     
     func createUniversalScene() {
-        gameOver = false
 
         let blueColor = CIColor(red: 56/256, green: 237/256, blue: 228/256)
         self.backgroundColor = SKColor(CIColor: blueColor)
@@ -130,7 +131,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.physicsWorld.contactDelegate = self
         self.physicsWorld.gravity = CGVectorMake(0, -9.8)
 
-        seconds = 0
+        seconds = 10
         timerLabel = SKLabelNode(fontNamed: "Arial Rounded MT Bold")
         timerLabel.fontColor = UIColor.magentaColor()
         timerLabel.text = "\(seconds)"
@@ -182,8 +183,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func randomGame() {
-        let previousLevel = userDefaults.valueForKey("currentLevel") as! Int
-        userDefaults.setValue(Int(previousLevel + 1), forKey: "currentLevel")
+        curLevel += 1
         let randomGameID = arc4random_uniform(3)
         switch randomGameID {
         case 0:
@@ -196,7 +196,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             curGame = 2
             startCatGame()
         default:
-            startBounceGame()
+            startFrisbeeGame()
         }
     }
     
@@ -207,25 +207,59 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             timerLabel.text = "\(seconds)"
         }
         
-        
         if seconds == 0 {
-//            self.presentViewController(GameOverViewController(), animated: true, completion: nil)
             if (curGame == 0) {
                 newGame()
+            } else if (curGame == 1) {
+                if (score < desiredScore) {
+                    gameOver = true
+                     createScoreTable()
+                } else {
+                    newGame()
+                }
+            } else if (curGame == 2) {
+                if (score < desiredScore) {
+                    gameOver = true
+                    createScoreTable()
+                } else {
+                    newGame()
+                }
             }
         }
     }
     
     func createScoreTable() {
+        if ((curLevel - 1) > (userDefaults.valueForKey("highScore") as! Int)) {
+            userDefaults.setValue(Int(curLevel), forKey: "highScore")
+        }
+        
         scoreTable = SKSpriteNode(color: SKColor.whiteColor(), size: CGSize(width: self.frame.width - 50, height: 300))
         scoreTable.position = CGPoint(x: self.frame.width / 2, y: self.frame.height / 2)
         scoreTable.zPosition = 5
+        
+        highScoreLabel = SKLabelNode(fontNamed: "Arial Rounded MT Bold")
+        highScoreLabel.text = "High Score: \(userDefaults.valueForKey("highScore") as! Int)"
+        highScoreLabel.fontColor = UIColor.magentaColor()
+        highScoreLabel.fontSize = 40
+        highScoreLabel.position = CGPoint(x: self.frame.width / 2, y: self.frame.height / 2 + 25)
+        highScoreLabel.zPosition = 6
+        
         restartButton = SKSpriteNode(color: SKColor.grayColor(), size: CGSize(width: self.frame.width - 50, height: 100))
         restartButton.position = CGPoint(x: self.frame.width/2, y: self.frame.height / 2 - 100)
         restartButton.zPosition = 6
         
+        restartButtonLabel = SKLabelNode(fontNamed: "Arial Rounded MT Bold")
+        restartButtonLabel.text = "Play Again"
+        restartButtonLabel.fontColor = UIColor.magentaColor()
+        restartButtonLabel.fontSize = 40
+        restartButtonLabel.position = CGPoint(x: self.frame.width / 2, y: self.frame.height / 2 - 115)
+        restartButtonLabel.zPosition = 7
+
+        
         self.addChild(scoreTable)
+        self.addChild(highScoreLabel)
         self.addChild(restartButton)
+        self.addChild(restartButtonLabel)
         
     }
     
@@ -238,113 +272,136 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
        /* Called when a touch begins */
-        
-        frisbeeSprite.position = initialPos!
-        
         let touch = touches.first! as UITouch
-        startTouchPoint = touch.locationInNode(self)
+        if (!gameOver) {
+            if (curGame == 1) {
+                frisbeeSprite.position = initialPos!
+                startTouchPoint = touch.locationInNode(self)
+                
+            }
+            
+            if (curGame == 2) {
+                if touch.locationInNode(self).y != (buttonHeight * 3) + (buttonHeight / 2) {
+                    //end game
+                }
+                
+                GrumpyButton1.position.y = GrumpyButton1.position.y + buttonHeight
+                GrumpyButton2.position.y = GrumpyButton2.position.y + buttonHeight
+                GrumpyButton3.position.y = GrumpyButton3.position.y + buttonHeight
+                GrumpyButton4.position.y = GrumpyButton4.position.y + buttonHeight
+                GrumpyButton5.position.y = GrumpyButton5.position.y + buttonHeight
+                GrumpyButton6.position.y = GrumpyButton6.position.y + buttonHeight
+                GrumpyButton7.position.y = GrumpyButton7.position.y + buttonHeight
+                GrumpyButton8.position.y = GrumpyButton8.position.y + buttonHeight
+                GrumpyButton9.position.y = GrumpyButton9.position.y + buttonHeight
+                GrumpyButton10.position.y = GrumpyButton10.position.y + buttonHeight
+                GrumpyButton11.position.y = GrumpyButton11.position.y + buttonHeight
+                GrumpyButton12.position.y = GrumpyButton12.position.y + buttonHeight
+                GrumpyButton13.position.y = GrumpyButton13.position.y + buttonHeight
+                GrumpyButton14.position.y = GrumpyButton14.position.y + buttonHeight
+                GrumpyButton15.position.y = GrumpyButton15.position.y + buttonHeight
+                
+                DogeButton1.position.y = DogeButton1.position.y + buttonHeight
+                DogeButton2.position.y = DogeButton2.position.y + buttonHeight
+                DogeButton3.position.y = DogeButton3.position.y + buttonHeight
+                DogeButton4.position.y = DogeButton4.position.y + buttonHeight
+                DogeButton5.position.y = DogeButton5.position.y + buttonHeight
+                
+                if DogeButton1.position.y >= buttonHeight * 4 + (buttonHeight / 2.0) {
+                    DogeButton1.position.y = 0 - (buttonHeight / 2.0)
+                    GrumpyButton1.position.y = 0 - (buttonHeight / 2.0)
+                    GrumpyButton6.position.y = 0 - (buttonHeight / 2.0)
+                    GrumpyButton11.position.y = 0 - (buttonHeight / 2.0)
+                    randomPlacement1()
+                }
+                if DogeButton2.position.y >= buttonHeight * 4 + (buttonHeight / 2.0) {
+                    DogeButton2.position.y = 0 - (buttonHeight / 2.0)
+                    GrumpyButton2.position.y = 0 - (buttonHeight / 2.0)
+                    GrumpyButton7.position.y = 0 - (buttonHeight / 2.0)
+                    GrumpyButton12.position.y = 0 - (buttonHeight / 2.0)
+                    randomPlacement2()
+                }
+                if DogeButton3.position.y >= buttonHeight * 4 + (buttonHeight / 2.0) {
+                    DogeButton3.position.y = 0 - (buttonHeight / 2.0)
+                    GrumpyButton3.position.y = 0 - (buttonHeight / 2.0)
+                    GrumpyButton8.position.y = 0 - (buttonHeight / 2.0)
+                    GrumpyButton13.position.y = 0 - (buttonHeight / 2.0)
+                    randomPlacement3()
+                }
+                if DogeButton4.position.y >= buttonHeight * 4 + (buttonHeight / 2.0) {
+                    DogeButton4.position.y = 0 - (buttonHeight / 2.0)
+                    GrumpyButton4.position.y = 0 - (buttonHeight / 2.0)
+                    GrumpyButton9.position.y = 0 - (buttonHeight / 2.0)
+                    GrumpyButton14.position.y = 0 - (buttonHeight / 2.0)
+                    randomPlacement5()
+                }
+                
+                if DogeButton5.position.y >= buttonHeight * 4 + (buttonHeight / 2.0) {
+                    DogeButton5.position.y = 0 - (buttonHeight / 2.0)
+                    GrumpyButton5.position.y = 0 - (buttonHeight / 2.0)
+                    GrumpyButton10.position.y = 0 - (buttonHeight / 2.0)
+                    GrumpyButton15.position.y = 0 - (buttonHeight / 2.0)
+                    randomPlacement5()
+                }
+            }
+        }
         
-        if touch.locationInNode(self).y != (buttonHeight * 3) + (buttonHeight / 2) {
-            //end game
-        }
-        GrumpyButton1.position.y = GrumpyButton1.position.y + buttonHeight
-        GrumpyButton2.position.y = GrumpyButton2.position.y + buttonHeight
-        GrumpyButton3.position.y = GrumpyButton3.position.y + buttonHeight
-        GrumpyButton4.position.y = GrumpyButton4.position.y + buttonHeight
-        GrumpyButton5.position.y = GrumpyButton5.position.y + buttonHeight
-        GrumpyButton6.position.y = GrumpyButton6.position.y + buttonHeight
-        GrumpyButton7.position.y = GrumpyButton7.position.y + buttonHeight
-        GrumpyButton8.position.y = GrumpyButton8.position.y + buttonHeight
-        GrumpyButton9.position.y = GrumpyButton9.position.y + buttonHeight
-        GrumpyButton10.position.y = GrumpyButton10.position.y + buttonHeight
-        GrumpyButton11.position.y = GrumpyButton11.position.y + buttonHeight
-        GrumpyButton12.position.y = GrumpyButton12.position.y + buttonHeight
-        GrumpyButton13.position.y = GrumpyButton13.position.y + buttonHeight
-        GrumpyButton14.position.y = GrumpyButton14.position.y + buttonHeight
-        GrumpyButton15.position.y = GrumpyButton15.position.y + buttonHeight
         
-        DogeButton1.position.y = DogeButton1.position.y + buttonHeight
-        DogeButton2.position.y = DogeButton2.position.y + buttonHeight
-        DogeButton3.position.y = DogeButton3.position.y + buttonHeight
-        DogeButton4.position.y = DogeButton4.position.y + buttonHeight
-        DogeButton5.position.y = DogeButton5.position.y + buttonHeight
         
-        if DogeButton1.position.y >= buttonHeight * 4 + (buttonHeight / 2.0) {
-            DogeButton1.position.y = 0 - (buttonHeight / 2.0)
-            GrumpyButton1.position.y = 0 - (buttonHeight / 2.0)
-            GrumpyButton6.position.y = 0 - (buttonHeight / 2.0)
-            GrumpyButton11.position.y = 0 - (buttonHeight / 2.0)
-            randomPlacement1()
-        }
-        if DogeButton2.position.y >= buttonHeight * 4 + (buttonHeight / 2.0) {
-            DogeButton2.position.y = 0 - (buttonHeight / 2.0)
-            GrumpyButton2.position.y = 0 - (buttonHeight / 2.0)
-            GrumpyButton7.position.y = 0 - (buttonHeight / 2.0)
-            GrumpyButton12.position.y = 0 - (buttonHeight / 2.0)
-            randomPlacement2()
-        }
-        if DogeButton3.position.y >= buttonHeight * 4 + (buttonHeight / 2.0) {
-            DogeButton3.position.y = 0 - (buttonHeight / 2.0)
-            GrumpyButton3.position.y = 0 - (buttonHeight / 2.0)
-            GrumpyButton8.position.y = 0 - (buttonHeight / 2.0)
-            GrumpyButton13.position.y = 0 - (buttonHeight / 2.0)
-            randomPlacement3()
-        }
-        if DogeButton4.position.y >= buttonHeight * 4 + (buttonHeight / 2.0) {
-            DogeButton4.position.y = 0 - (buttonHeight / 2.0)
-            GrumpyButton4.position.y = 0 - (buttonHeight / 2.0)
-            GrumpyButton9.position.y = 0 - (buttonHeight / 2.0)
-            GrumpyButton14.position.y = 0 - (buttonHeight / 2.0)
-            randomPlacement5()
-        }
-        
-        if DogeButton5.position.y >= buttonHeight * 4 + (buttonHeight / 2.0) {
-            DogeButton5.position.y = 0 - (buttonHeight / 2.0)
-            GrumpyButton5.position.y = 0 - (buttonHeight / 2.0)
-            GrumpyButton10.position.y = 0 - (buttonHeight / 2.0)
-            GrumpyButton15.position.y = 0 - (buttonHeight / 2.0)
-            randomPlacement5()
+        for touch in touches {
+            let location = touch.locationInNode(self)
+            if (gameOver) {
+                if (restartButton.containsPoint(location)) {
+                    curLevel = 0
+                    newGame()
+                }
+            }
         }
     }
     
     override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        
-        let touch = touches.first! as UITouch
-        endTouchPoint = touch.locationInNode(self)
-        
-        let impulseVector = CGVector(dx: endTouchPoint.x - startTouchPoint.x, dy: (endTouchPoint.y - startTouchPoint.y) * 1.75)
-        
-        frisbeeSprite.physicsBody?.applyImpulse(impulseVector)
-        
-        frisbeeSprite.position = initialPos!
-        frisbeeSprite.zRotation = 0
-        touching = false
+        if (!gameOver) {
+            if (curGame == 1) {
+                let touch = touches.first! as UITouch
+                endTouchPoint = touch.locationInNode(self)
+                
+                let impulseVector = CGVector(dx: endTouchPoint.x - startTouchPoint.x, dy: (endTouchPoint.y - startTouchPoint.y) * 1.75)
+                
+                frisbeeSprite.physicsBody?.applyImpulse(impulseVector)
+                
+                frisbeeSprite.position = initialPos!
+                frisbeeSprite.zRotation = 0
+                touching = false
+            }
+        }
     }
     
     func didBeginContact(contact: SKPhysicsContact) {
         let firstObject = contact.bodyA
         let secondObject = contact.bodyB
         
-        if (curGame == 0) {
-            if ((firstObject.categoryBitMask == PhysicsCategory.ground && secondObject.categoryBitMask == PhysicsCategory.toy) ||
-                (firstObject.categoryBitMask == PhysicsCategory.toy && secondObject.categoryBitMask == PhysicsCategory.ground)) {
-                ballTimer.invalidate()
-                gameTimer.invalidate()
-                gameOver = true
-                createScoreTable()
-            } else if ((firstObject.categoryBitMask == PhysicsCategory.doge && secondObject.categoryBitMask == PhysicsCategory.toy) ||
-                (firstObject.categoryBitMask == PhysicsCategory.toy && secondObject.categoryBitMask == PhysicsCategory.doge)) {
-                if (firstObject.categoryBitMask == PhysicsCategory.toy) {
-                    firstObject.applyImpulse(CGVectorMake(0, 60))
-                } else {
-                    secondObject.applyImpulse(CGVectorMake(0, 60))
+        if (!gameOver) {
+            if (curGame == 0) {
+                if ((firstObject.categoryBitMask == PhysicsCategory.ground && secondObject.categoryBitMask == PhysicsCategory.toy) ||
+                    (firstObject.categoryBitMask == PhysicsCategory.toy && secondObject.categoryBitMask == PhysicsCategory.ground)) {
+                    ballTimer.invalidate()
+                    gameTimer.invalidate()
+                    gameOver = true
+                    createScoreTable()
+                } else if ((firstObject.categoryBitMask == PhysicsCategory.doge && secondObject.categoryBitMask == PhysicsCategory.toy) ||
+                    (firstObject.categoryBitMask == PhysicsCategory.toy && secondObject.categoryBitMask == PhysicsCategory.doge)) {
+                    if (firstObject.categoryBitMask == PhysicsCategory.toy) {
+                        firstObject.applyImpulse(CGVectorMake(0, 60))
+                    } else {
+                        secondObject.applyImpulse(CGVectorMake(0, 60))
+                    }
                 }
-            }
-        } else if (curGame == 1) {
-            if ((firstObject.node?.name == frisbeeSprite.name && secondObject.node?.name == dogeSpriteForFrisbeeGame.name) || (firstObject.node?.name == dogeSpriteForFrisbeeGame.name && secondObject.node?.name == frisbeeSprite.name)) {
-                print("contact")
-                score += 1
-                scoreLabel.text = "\(score)"
+            } else if (curGame == 1) {
+                if ((firstObject.node?.name == frisbeeSprite.name && secondObject.node?.name == dogeSpriteForFrisbeeGame.name) || (firstObject.node?.name == dogeSpriteForFrisbeeGame.name && secondObject.node?.name == frisbeeSprite.name)) {
+                    //                print("contact")
+                    score += 1
+                    scoreLabel.text = "\(score)"
+                }
             }
         }
     }
@@ -375,11 +432,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func updateDogeForBounceGame() {
-        if let roll = motionManager.deviceMotion?.attitude.roll {
-            dogeSpriteForBounceGame.physicsBody?.velocity = CGVectorMake(CGFloat(roll) * 500, 0)
+        if (!gameOver) {
+            if let roll = motionManager.deviceMotion?.attitude.roll {
+                dogeSpriteForBounceGame.physicsBody?.velocity = CGVectorMake(CGFloat(roll) * 500, 0)
+            }
+            dogeSpriteForBounceGame.position.y = 60
+            dogeSpriteForBounceGame.zRotation = 0
         }
-        dogeSpriteForBounceGame.position.y = 60
-        dogeSpriteForBounceGame.zRotation = 0
     }
     
     func loadBalls(timer:NSTimer) {
@@ -455,19 +514,32 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.addChild(frisbeeSprite)
         self.addChild(ceilingSprite)
         
+        score = 0
+        
         scoreLabel = SKLabelNode(fontNamed: "Arial Rounded MT Bold")
         scoreLabel.fontColor = UIColor.magentaColor()
         scoreLabel.text = "\(score)"
         scoreLabel.position = CGPoint(x: self.frame.width - 30, y: self.frame.height - 50)
+        scoreLabel.zPosition = 4
         self.addChild(scoreLabel)
+        
+        desiredScore = min(curLevel * 2, 10)
+        
+        desiredScoreLabel = SKLabelNode(fontNamed: "Arial Rounded MT Bold")
+        desiredScoreLabel.fontColor = UIColor.magentaColor()
+        desiredScoreLabel.text = "Need: \(desiredScore)"
+        desiredScoreLabel.position = CGPoint(x: self.frame.width / 2, y: self.frame.height - 50)
+        desiredScoreLabel.zPosition = 4
+
+        self.addChild(desiredScoreLabel)
         
         moveSprite()
     }
     
     func moveSprite() {
-        let level = userDefaults.valueForKey("currentLevel") as! Int
+        let level = curLevel
         
-        if level == 0 {
+        if level == 1 {
             dogeSpriteForFrisbeeGame.position = CGPoint(x: self.frame.width / 2, y: self.frame.height * 0.90)
             durationMovement = 1000000
         } else {
@@ -491,8 +563,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.view?.backgroundColor = UIColor.whiteColor()
         buttonWidth = self.frame.width / 4
         buttonHeight = self.frame.height / 4
+        
+        score = 0
 
         desiredScore = curLevel + 10
+        
+        desiredScoreLabel = SKLabelNode(fontNamed: "Arial Rounded MT Bold")
+        desiredScoreLabel.fontColor = UIColor.magentaColor()
+        desiredScoreLabel.text = "Need: \(desiredScore)"
+        desiredScoreLabel.position = CGPoint(x: self.frame.width / 2, y: self.frame.height - 50)
+        desiredScoreLabel.zPosition = 4
+        self.addChild(desiredScoreLabel)
         
         score = 0 //should this change later on?
 
