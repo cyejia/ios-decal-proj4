@@ -235,6 +235,7 @@ class DontTouchTheGrumpyCatViewController: UIViewController {
         if score > 9 {
             scoreLabel.center = CGPoint(x: screenWidth * 0.98, y: buttonHeight * 0.18)
         }
+        
         if count == 0 && score < desiredScore {
             self.presentViewController(GameOverViewController(), animated: true, completion: nil)
         }
