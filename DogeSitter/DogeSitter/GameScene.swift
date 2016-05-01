@@ -36,6 +36,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var gameOver = Bool()
     var scoreTable = SKSpriteNode()
     var highScoreLabel = SKLabelNode()
+    var lastScoreLabel = SKLabelNode()
     var restartButton = SKSpriteNode()
     var restartButtonLabel = SKLabelNode()
     
@@ -141,6 +142,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         timerLabel.fontColor = UIColor.magentaColor()
         timerLabel.text = "\(seconds)"
         timerLabel.position = CGPoint(x: 30, y: self.frame.height - 50)
+        timerLabel.zPosition = 4
         self.addChild(timerLabel)
         
         ground = SKSpriteNode(imageNamed: "Transparent")
@@ -252,9 +254,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         highScoreLabel = SKLabelNode(fontNamed: "Arial Rounded MT Bold")
         highScoreLabel.text = "High Score: \(userDefaults.valueForKey("highScore") as! Int)"
         highScoreLabel.fontColor = UIColor.magentaColor()
-        highScoreLabel.fontSize = 40
-        highScoreLabel.position = CGPoint(x: self.frame.width / 2, y: self.frame.height / 2 + 25)
+        highScoreLabel.fontSize = 36
+        highScoreLabel.position = CGPoint(x: self.frame.width / 2, y: self.frame.height / 2 + 70)
         highScoreLabel.zPosition = 6
+        
+        lastScoreLabel = SKLabelNode(fontNamed: "Arial Rounded MT Bold")
+        lastScoreLabel.text = "Your Score: \(curLevel - 1)"
+        lastScoreLabel.fontColor = UIColor.magentaColor()
+        lastScoreLabel.position = CGPoint(x: self.frame.width / 2, y: self.frame.height / 2)
+        lastScoreLabel.zPosition = 6
         
         restartButton = SKSpriteNode(color: SKColor.grayColor(), size: CGSize(width: self.frame.width - 50, height: 100))
         restartButton.position = CGPoint(x: self.frame.width/2, y: self.frame.height / 2 - 100)
@@ -270,6 +278,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         self.addChild(scoreTable)
         self.addChild(highScoreLabel)
+        self.addChild(lastScoreLabel)
         self.addChild(restartButton)
         self.addChild(restartButtonLabel)
         
