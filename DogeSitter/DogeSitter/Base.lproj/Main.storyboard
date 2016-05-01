@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Pau-Ze-IQX">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Pau-Ze-IQX">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -47,10 +47,10 @@
             </objects>
             <point key="canvasLocation" x="1462" y="302"/>
         </scene>
-        <!--Start Screen View Controller-->
+        <!--View Controller-->
         <scene sceneID="W4s-Co-wbu">
             <objects>
-                <viewController id="YhZ-Es-MdF" customClass="StartScreenViewController" customModule="DogeSitter" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="YhZ-Es-MdF" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Mn6-pb-KOZ"/>
                         <viewControllerLayoutGuide type="bottom" id="R2B-5i-aTQ"/>

@@ -70,12 +70,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     // ----------------
     // CAT GAME
     // ----------------
-    
-    var row1: [SKSpriteNode] = []
-    var row2: [SKSpriteNode] = []
-    var row3: [SKSpriteNode] = []
-    var row4: [SKSpriteNode] = []
-    var row5: [SKSpriteNode] = []
 
     var GrumpyButton1: SKSpriteNode!
     var GrumpyButton2: SKSpriteNode!
@@ -249,6 +243,68 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         let touch = touches.first! as UITouch
         startTouchPoint = touch.locationInNode(self)
+        
+        if touch.locationInNode(self).y != (buttonHeight * 3) + (buttonHeight / 2) {
+            //end game
+        }
+        GrumpyButton1.position.y = GrumpyButton1.position.y + buttonHeight
+        GrumpyButton2.position.y = GrumpyButton2.position.y + buttonHeight
+        GrumpyButton3.position.y = GrumpyButton3.position.y + buttonHeight
+        GrumpyButton4.position.y = GrumpyButton4.position.y + buttonHeight
+        GrumpyButton5.position.y = GrumpyButton5.position.y + buttonHeight
+        GrumpyButton6.position.y = GrumpyButton6.position.y + buttonHeight
+        GrumpyButton7.position.y = GrumpyButton7.position.y + buttonHeight
+        GrumpyButton8.position.y = GrumpyButton8.position.y + buttonHeight
+        GrumpyButton9.position.y = GrumpyButton9.position.y + buttonHeight
+        GrumpyButton10.position.y = GrumpyButton10.position.y + buttonHeight
+        GrumpyButton11.position.y = GrumpyButton11.position.y + buttonHeight
+        GrumpyButton12.position.y = GrumpyButton12.position.y + buttonHeight
+        GrumpyButton13.position.y = GrumpyButton13.position.y + buttonHeight
+        GrumpyButton14.position.y = GrumpyButton14.position.y + buttonHeight
+        GrumpyButton15.position.y = GrumpyButton15.position.y + buttonHeight
+        
+        DogeButton1.position.y = DogeButton1.position.y + buttonHeight
+        DogeButton2.position.y = DogeButton2.position.y + buttonHeight
+        DogeButton3.position.y = DogeButton3.position.y + buttonHeight
+        DogeButton4.position.y = DogeButton4.position.y + buttonHeight
+        DogeButton5.position.y = DogeButton5.position.y + buttonHeight
+        
+        if DogeButton1.position.y >= buttonHeight * 4 + (buttonHeight / 2.0) {
+            DogeButton1.position.y = 0 - (buttonHeight / 2.0)
+            GrumpyButton1.position.y = 0 - (buttonHeight / 2.0)
+            GrumpyButton6.position.y = 0 - (buttonHeight / 2.0)
+            GrumpyButton11.position.y = 0 - (buttonHeight / 2.0)
+            randomPlacement1()
+        }
+        if DogeButton2.position.y >= buttonHeight * 4 + (buttonHeight / 2.0) {
+            DogeButton2.position.y = 0 - (buttonHeight / 2.0)
+            GrumpyButton2.position.y = 0 - (buttonHeight / 2.0)
+            GrumpyButton7.position.y = 0 - (buttonHeight / 2.0)
+            GrumpyButton12.position.y = 0 - (buttonHeight / 2.0)
+            randomPlacement2()
+        }
+        if DogeButton3.position.y >= buttonHeight * 4 + (buttonHeight / 2.0) {
+            DogeButton3.position.y = 0 - (buttonHeight / 2.0)
+            GrumpyButton3.position.y = 0 - (buttonHeight / 2.0)
+            GrumpyButton8.position.y = 0 - (buttonHeight / 2.0)
+            GrumpyButton13.position.y = 0 - (buttonHeight / 2.0)
+            randomPlacement3()
+        }
+        if DogeButton4.position.y >= buttonHeight * 4 + (buttonHeight / 2.0) {
+            DogeButton4.position.y = 0 - (buttonHeight / 2.0)
+            GrumpyButton4.position.y = 0 - (buttonHeight / 2.0)
+            GrumpyButton9.position.y = 0 - (buttonHeight / 2.0)
+            GrumpyButton14.position.y = 0 - (buttonHeight / 2.0)
+            randomPlacement5()
+        }
+        
+        if DogeButton5.position.y >= buttonHeight * 4 + (buttonHeight / 2.0) {
+            DogeButton5.position.y = 0 - (buttonHeight / 2.0)
+            GrumpyButton5.position.y = 0 - (buttonHeight / 2.0)
+            GrumpyButton10.position.y = 0 - (buttonHeight / 2.0)
+            GrumpyButton15.position.y = 0 - (buttonHeight / 2.0)
+            randomPlacement5()
+        }
     }
     
     override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
@@ -443,125 +499,267 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         GrumpyButton1 = SKSpriteNode(imageNamed: "GrumpyCat")
         GrumpyButton1.size = CGSize(width: buttonWidth, height: buttonHeight)
         GrumpyButton1.position = CGPoint(x: buttonWidth / 2.0, y: 0 - (buttonHeight / 2.0))
-        row1.append(GrumpyButton1)
         self.addChild(GrumpyButton1)
         
         GrumpyButton2 = SKSpriteNode(imageNamed: "GrumpyCat")
         GrumpyButton2.size = CGSize(width: buttonWidth, height: buttonHeight)
         GrumpyButton2.position = CGPoint(x: buttonWidth / 2.0, y: buttonHeight / 2.0)
-        row2.append(GrumpyButton2)
         self.addChild(GrumpyButton2)
         
         GrumpyButton3 = SKSpriteNode(imageNamed: "GrumpyCat")
         GrumpyButton3.size = CGSize(width: buttonWidth, height: buttonHeight)
         GrumpyButton3.position = CGPoint(x: buttonWidth / 2.0, y: buttonHeight + (buttonHeight / 2.0))
-        row3.append(GrumpyButton3)
         self.addChild(GrumpyButton3)
         
         GrumpyButton4 = SKSpriteNode(imageNamed: "GrumpyCat")
         GrumpyButton4.size = CGSize(width: buttonWidth, height: buttonHeight)
         GrumpyButton4.position = CGPoint(x: buttonWidth / 2.0, y: (buttonHeight * 2.0) + (buttonHeight / 2.0))
-        row4.append(GrumpyButton4)
         self.addChild(GrumpyButton4)
         
         GrumpyButton5 = SKSpriteNode(imageNamed: "GrumpyCat")
         GrumpyButton5.size = CGSize(width: buttonWidth, height: buttonHeight)
         GrumpyButton5.position = CGPoint(x: buttonWidth / 2.0, y: (buttonHeight * 3.0) + (buttonHeight / 2.0))
-        row5.append(GrumpyButton5)
         self.addChild(GrumpyButton5)
         
         GrumpyButton6 = SKSpriteNode(imageNamed: "GrumpyCat")
         GrumpyButton6.size = CGSize(width: buttonWidth, height: buttonHeight)
         GrumpyButton6.position = CGPoint(x: (buttonWidth * 2.0) + (buttonWidth / 2.0), y: 0 - (buttonHeight / 2.0))
-        row1.append(GrumpyButton6)
         self.addChild(GrumpyButton6)
         
         GrumpyButton7 = SKSpriteNode(imageNamed: "GrumpyCat")
         GrumpyButton7.size = CGSize(width: buttonWidth, height: buttonHeight)
         GrumpyButton7.position = CGPoint(x: (buttonWidth * 2.0) + (buttonWidth / 2.0), y: buttonHeight / 2.0)
-        row2.append(GrumpyButton7)
         self.addChild(GrumpyButton7)
         
         GrumpyButton8 = SKSpriteNode(imageNamed: "GrumpyCat")
         GrumpyButton8.size = CGSize(width: buttonWidth, height: buttonHeight)
         GrumpyButton8.position = CGPoint(x: (buttonWidth * 2.0) + (buttonWidth / 2.0), y: buttonHeight + (buttonHeight / 2.0))
-        row3.append(GrumpyButton8)
         self.addChild(GrumpyButton8)
         
         GrumpyButton9 = SKSpriteNode(imageNamed: "GrumpyCat")
         GrumpyButton9.size = CGSize(width: buttonWidth, height: buttonHeight)
         GrumpyButton9.position = CGPoint(x: (buttonWidth * 2.0) + (buttonWidth / 2.0), y: (buttonHeight * 2.0) + (buttonHeight / 2.0))
-        row4.append(GrumpyButton9)
         self.addChild(GrumpyButton9)
         
         GrumpyButton10 = SKSpriteNode(imageNamed: "GrumpyCat")
         GrumpyButton10.size = CGSize(width: buttonWidth, height: buttonHeight)
         GrumpyButton10.position = CGPoint(x: (buttonWidth * 2.0) + (buttonWidth / 2.0), y: (buttonHeight * 3.0) + (buttonHeight / 2.0))
-        row5.append(GrumpyButton10)
         self.addChild(GrumpyButton10)
         
         GrumpyButton11 = SKSpriteNode(imageNamed: "GrumpyCat")
         GrumpyButton11.size = CGSize(width: buttonWidth, height: buttonHeight)
         GrumpyButton11.position = CGPoint(x: (buttonWidth * 3.0) + (buttonWidth / 2.0), y: 0 - (buttonHeight / 2.0))
-        row1.append(GrumpyButton11)
         self.addChild(GrumpyButton11)
         
         GrumpyButton12 = SKSpriteNode(imageNamed: "GrumpyCat")
         GrumpyButton12.size = CGSize(width: buttonWidth, height: buttonHeight)
         GrumpyButton12.position = CGPoint(x: (buttonWidth * 3.0) + (buttonWidth / 2.0), y: buttonHeight / 2.0)
-        row2.append(GrumpyButton12)
         self.addChild(GrumpyButton12)
         
         GrumpyButton13 = SKSpriteNode(imageNamed: "GrumpyCat")
         GrumpyButton13.size = CGSize(width: buttonWidth, height: buttonHeight)
         GrumpyButton13.position = CGPoint(x: (buttonWidth * 3.0) + (buttonWidth / 2.0), y: buttonHeight + (buttonHeight / 2.0))
-        row3.append(GrumpyButton13)
         self.addChild(GrumpyButton13)
         
         GrumpyButton14 = SKSpriteNode(imageNamed: "GrumpyCat")
         GrumpyButton14.size = CGSize(width: buttonWidth, height: buttonHeight)
         GrumpyButton14.position = CGPoint(x: (buttonWidth * 3.0) + (buttonWidth / 2.0), y: (buttonHeight * 2.0) + (buttonHeight / 2.0))
-        row4.append(GrumpyButton14)
         self.addChild(GrumpyButton14)
         
         GrumpyButton15 = SKSpriteNode(imageNamed: "GrumpyCat")
         GrumpyButton15.size = CGSize(width: buttonWidth, height: buttonHeight)
         GrumpyButton15.position = CGPoint(x: (buttonWidth * 3.0) + (buttonWidth / 2.0), y: (buttonHeight * 3.0) + (buttonHeight / 2.0))
-        row5.append(GrumpyButton15)
         self.addChild(GrumpyButton15)
-        
-        
         
         DogeButton1 = SKSpriteNode(imageNamed: "Doge")
         DogeButton1.size = CGSize(width: buttonWidth, height: buttonHeight)
         DogeButton1.position = CGPoint(x: buttonWidth + (buttonWidth / 2.0), y: 0 - (buttonHeight / 2.0))
-        row1.append(DogeButton1)
         self.addChild(DogeButton1)
 
         DogeButton2 = SKSpriteNode(imageNamed: "Doge")
         DogeButton2.size = CGSize(width: buttonWidth, height: buttonHeight)
         DogeButton2.position = CGPoint(x: buttonWidth + (buttonWidth / 2.0), y: buttonHeight / 2.0)
-        row2.append(DogeButton2)
         self.addChild(DogeButton2)
         
         DogeButton3 = SKSpriteNode(imageNamed: "Doge")
         DogeButton3.size = CGSize(width: buttonWidth, height: buttonHeight)
         DogeButton3.position = CGPoint(x: buttonWidth + (buttonWidth / 2.0), y: buttonHeight + (buttonHeight / 2.0))
-        row3.append(DogeButton3)
         self.addChild(DogeButton3)
         
         DogeButton4 = SKSpriteNode(imageNamed: "Doge")
         DogeButton4.size = CGSize(width: buttonWidth, height: buttonHeight)
         DogeButton4.position = CGPoint(x: buttonWidth + (buttonWidth / 2.0), y: (buttonHeight * 2.0) + (buttonHeight / 2.0))
-        row4.append(DogeButton4)
         self.addChild(DogeButton4)
         
         DogeButton5 = SKSpriteNode(imageNamed: "Doge")
         DogeButton5.size = CGSize(width: buttonWidth, height: buttonHeight)
         DogeButton5.position = CGPoint(x: buttonWidth + (buttonWidth / 2.0), y: (buttonHeight * 3.0) + (buttonHeight / 2.0))
-        row5.append(DogeButton5)
         self.addChild(DogeButton5)
+        
+        randomPlacement1()
+        randomPlacement2()
+        randomPlacement3()
+        randomPlacement4()
+        randomPlacement5()
 
     }
+    func randomPlacement1() {
+        let randomNumber = arc4random() % 4
+        switch(randomNumber) {
+        case 0:
+        DogeButton1.position.x = buttonWidth / 2.0
+        GrumpyButton1.position.x = buttonWidth + (buttonWidth / 2.0)
+        GrumpyButton6.position.x = (buttonWidth  * 2.0) + (buttonWidth / 2.0)
+        GrumpyButton11.position.x = (buttonWidth  * 3.0) + (buttonWidth / 2.0)
+            break
+        case 1:
+        DogeButton1.position.x = (buttonWidth  * 3.0) + (buttonWidth / 2.0)
+        GrumpyButton1.position.x = buttonWidth / 2.0
+        GrumpyButton6.position.x = buttonWidth + (buttonWidth / 2.0)
+        GrumpyButton11.position.x = (buttonWidth  * 2.0) + (buttonWidth / 2.0)
+            break
+        case 2:
+        DogeButton1.position.x = (buttonWidth  * 2.0) + (buttonWidth / 2.0)
+        GrumpyButton1.position.x = (buttonWidth  * 3.0) + (buttonWidth / 2.0)
+        GrumpyButton6.position.x = buttonWidth / 2.0
+        GrumpyButton11.position.x = buttonWidth + (buttonWidth / 2.0)
+            break
+        case 3:
+        DogeButton1.position.x = buttonWidth + (buttonWidth / 2.0)
+        GrumpyButton1.position.x = (buttonWidth  * 2.0) + (buttonWidth / 2.0)
+        GrumpyButton6.position.x = (buttonWidth  * 3.0) + (buttonWidth / 2.0)
+        GrumpyButton11.position.x = buttonWidth / 2.0
+            break
+        default:
+            break
+        }
+    }
     
+    func randomPlacement2() {
+        let randomNumber = arc4random() % 4
+        switch(randomNumber) {
+        case 0:
+        DogeButton2.position.x = buttonWidth / 2.0
+        GrumpyButton2.position.x = buttonWidth + (buttonWidth / 2.0)
+        GrumpyButton7.position.x = (buttonWidth  * 2.0) + (buttonWidth / 2.0)
+        GrumpyButton12.position.x = (buttonWidth  * 3.0) + (buttonWidth / 2.0)
+            break
+        case 1:
+        DogeButton2.position.x = (buttonWidth  * 3.0) + (buttonWidth / 2.0)
+        GrumpyButton2.position.x = buttonWidth / 2.0
+        GrumpyButton7.position.x = buttonWidth + (buttonWidth / 2.0)
+        GrumpyButton12.position.x = (buttonWidth  * 2.0) + (buttonWidth / 2.0)
+            break
+        case 2:
+        DogeButton2.position.x = (buttonWidth  * 2.0) + (buttonWidth / 2.0)
+        GrumpyButton2.position.x = (buttonWidth  * 3.0) + (buttonWidth / 2.0)
+        GrumpyButton7.position.x = buttonWidth / 2.0
+        GrumpyButton12.position.x = buttonWidth + (buttonWidth / 2.0)
+            break
+        case 3:
+        DogeButton2.position.x = buttonWidth + (buttonWidth / 2.0)
+        GrumpyButton2.position.x = (buttonWidth  * 2.0) + (buttonWidth / 2.0)
+        GrumpyButton7.position.x = (buttonWidth  * 3.0) + (buttonWidth / 2.0)
+        GrumpyButton12.position.x = buttonWidth / 2.0
+            break
+        default:
+            break
+        }
+    }
+    
+    func randomPlacement3() {
+        let randomNumber = arc4random() % 4
+        switch(randomNumber) {
+        case 0:
+        DogeButton3.position.x = buttonWidth / 2.0
+        GrumpyButton3.position.x = buttonWidth + (buttonWidth / 2.0)
+        GrumpyButton8.position.x = (buttonWidth  * 2.0) + (buttonWidth / 2.0)
+        GrumpyButton13.position.x = (buttonWidth  * 3.0) + (buttonWidth / 2.0)
+            break
+        case 1:
+        DogeButton3.position.x = (buttonWidth  * 3.0) + (buttonWidth / 2.0)
+        GrumpyButton3.position.x = buttonWidth / 2.0
+        GrumpyButton8.position.x = buttonWidth + (buttonWidth / 2.0)
+        GrumpyButton13.position.x = (buttonWidth  * 2.0) + (buttonWidth / 2.0)
+            break
+        case 2:
+        DogeButton3.position.x = (buttonWidth  * 2.0) + (buttonWidth / 2.0)
+        GrumpyButton3.position.x = (buttonWidth  * 3.0) + (buttonWidth / 2.0)
+        GrumpyButton8.position.x = buttonWidth / 2.0
+        GrumpyButton13.position.x = buttonWidth + (buttonWidth / 2.0)
+            break
+        case 3:
+        DogeButton3.position.x = buttonWidth + (buttonWidth / 2.0)
+        GrumpyButton3.position.x = (buttonWidth  * 2.0) + (buttonWidth / 2.0)
+        GrumpyButton8.position.x = (buttonWidth  * 3.0) + (buttonWidth / 2.0)
+        GrumpyButton13.position.x = buttonWidth / 2.0
+            break
+        default:
+            break
+        }
+    }
+    
+    func randomPlacement4() {
+        let randomNumber = arc4random() % 4
+        switch(randomNumber) {
+        case 0:
+        DogeButton4.position.x = buttonWidth / 2.0
+        GrumpyButton4.position.x = buttonWidth + (buttonWidth / 2.0)
+        GrumpyButton9.position.x = (buttonWidth  * 2.0) + (buttonWidth / 2.0)
+        GrumpyButton14.position.x = (buttonWidth  * 3.0) + (buttonWidth / 2.0)
+            break
+        case 1:
+        DogeButton4.position.x = (buttonWidth  * 3.0) + (buttonWidth / 2.0)
+        GrumpyButton4.position.x = buttonWidth / 2.0
+        GrumpyButton9.position.x = buttonWidth + (buttonWidth / 2.0)
+        GrumpyButton14.position.x = (buttonWidth  * 2.0) + (buttonWidth / 2.0)
+            break
+        case 2:
+        DogeButton4.position.x = (buttonWidth  * 2.0) + (buttonWidth / 2.0)
+        GrumpyButton4.position.x = (buttonWidth  * 3.0) + (buttonWidth / 2.0)
+        GrumpyButton9.position.x = buttonWidth / 2.0
+        GrumpyButton14.position.x = buttonWidth + (buttonWidth / 2.0)
+            break
+        case 3:
+        DogeButton4.position.x = buttonWidth + (buttonWidth / 2.0)
+        GrumpyButton4.position.x = (buttonWidth  * 2.0) + (buttonWidth / 2.0)
+        GrumpyButton9.position.x = (buttonWidth  * 3.0) + (buttonWidth / 2.0)
+        GrumpyButton14.position.x = buttonWidth / 2.0
+            break
+        default:
+            break
+        }
+    }
+    
+    func randomPlacement5() {
+        let randomNumber = arc4random() % 4
+        switch(randomNumber) {
+        case 0:
+        DogeButton5.position.x = buttonWidth / 2.0
+        GrumpyButton5.position.x = buttonWidth + (buttonWidth / 2.0)
+        GrumpyButton10.position.x = (buttonWidth  * 2.0) + (buttonWidth / 2.0)
+        GrumpyButton15.position.x = (buttonWidth  * 3.0) + (buttonWidth / 2.0)
+            break
+        case 1:
+        DogeButton5.position.x = (buttonWidth  * 3.0) + (buttonWidth / 2.0)
+        GrumpyButton5.position.x = buttonWidth / 2.0
+        GrumpyButton10.position.x = buttonWidth + (buttonWidth / 2.0)
+        GrumpyButton15.position.x = (buttonWidth  * 2.0) + (buttonWidth / 2.0)
+            break
+        case 2:
+        DogeButton5.position.x = (buttonWidth  * 2.0) + (buttonWidth / 2.0)
+        GrumpyButton5.position.x = (buttonWidth  * 3.0) + (buttonWidth / 2.0)
+        GrumpyButton10.position.x = buttonWidth / 2.0
+        GrumpyButton15.position.x = buttonWidth + (buttonWidth / 2.0)
+            break
+        case 3:
+        DogeButton5.position.x = buttonWidth + (buttonWidth / 2.0)
+        GrumpyButton5.position.x = (buttonWidth  * 2.0) + (buttonWidth / 2.0)
+        GrumpyButton10.position.x = (buttonWidth  * 3.0) + (buttonWidth / 2.0)
+        GrumpyButton15.position.x = buttonWidth / 2.0
+            break
+        default:
+            break
+        }
+    }
 }

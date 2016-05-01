@@ -8,12 +8,12 @@
 
 import UIKit
 
-class GameOverViewController= UIViewController {
+class GameOverViewController: UIViewController {
     
     let screenWidth = UIScreen.mainScreen().bounds.size.width
     let screenHeight = UIScreen.mainScreen().bounds.size.height
     
-    var game = DontTouchTheGrumpyCatViewController()
+//    var game = DontTouchTheGrumpyCatViewController()
     var gameOverLabel = UILabel()
 
     override func viewDidLoad() { // change top 4 to var
@@ -32,11 +32,11 @@ class GameOverViewController= UIViewController {
         
         let score = scoreDefault.valueForKey("tempscore") as! NSInteger
         
-        gameOverLabel = UILabel(frame= CGRect(x= 0, y= 0, width= screenWidth, height= screenHeight * 0.25))
+        gameOverLabel = UILabel(frame: CGRect(x: 0, y: 0, width: screenWidth, height: screenHeight * 0.25))
         gameOverLabel.text = "Game Over"
-        gameOverLabel.font = UIFont(name= "ComicSans MS", size= 50.0)
+        gameOverLabel.font = UIFont(name: "ComicSans MS", size: 50.0)
         gameOverLabel.textAlignment = .Center
-        gameOverLabel.center = CGPoint(x= screenWidth / 2.0, y= screenHeight * 0.25)
+        gameOverLabel.center = CGPoint(x: screenWidth / 2.0, y: screenHeight * 0.25)
         self.view.addSubview(gameOverLabel)
         
         self.view.backgroundColor = UIColor.whiteColor()
@@ -67,10 +67,10 @@ class GameOverViewController= UIViewController {
     }
     
     func backToGame() {
-        self.presentViewController(game, animated= true, completion= nil)
-        print("back to game")
-        self.presentViewController(DontTouchTheGrumpyCatViewController(), animated= true, completion= nil)
-        print("view did load")
+//        self.presentViewController(game, animated: true, completion: nil)
+//        print("back to game")
+//        self.presentViewController(DontTouchTheGrumpyCatViewController(), animated: true, completion: nil)
+//        print("view did load")
     }
 
     override func didReceiveMemoryWarning() {
