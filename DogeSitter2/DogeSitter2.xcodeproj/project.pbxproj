@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		453756161CD5570600E921B0 /* Game1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453756131CD5570600E921B0 /* Game1.swift */; };
+		453756171CD5570600E921B0 /* Game2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453756141CD5570600E921B0 /* Game2.swift */; };
+		453756181CD5570600E921B0 /* Game3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 453756151CD5570600E921B0 /* Game3.swift */; };
 		500073E51CD178F7007CF834 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500073E41CD178F7007CF834 /* AppDelegate.swift */; };
 		500073E71CD178F7007CF834 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 500073E61CD178F7007CF834 /* GameScene.sks */; };
 		500073E91CD178F7007CF834 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500073E81CD178F7007CF834 /* GameScene.swift */; };
@@ -28,6 +31,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		453756131CD5570600E921B0 /* Game1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game1.swift; sourceTree = "<group>"; };
+		453756141CD5570600E921B0 /* Game2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game2.swift; sourceTree = "<group>"; };
+		453756151CD5570600E921B0 /* Game3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Game3.swift; sourceTree = "<group>"; };
 		500073E11CD178F7007CF834 /* DogeSitter2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DogeSitter2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		500073E41CD178F7007CF834 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		500073E61CD178F7007CF834 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -85,6 +91,9 @@
 				500073E61CD178F7007CF834 /* GameScene.sks */,
 				500073E81CD178F7007CF834 /* GameScene.swift */,
 				500073EA1CD178F7007CF834 /* GameViewController.swift */,
+				453756131CD5570600E921B0 /* Game1.swift */,
+				453756141CD5570600E921B0 /* Game2.swift */,
+				453756151CD5570600E921B0 /* Game3.swift */,
 				500073EC1CD178F7007CF834 /* Main.storyboard */,
 				500073EF1CD178F7007CF834 /* Assets.xcassets */,
 				500073F11CD178F7007CF834 /* LaunchScreen.storyboard */,
@@ -204,9 +213,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				453756171CD5570600E921B0 /* Game2.swift in Sources */,
 				500073E91CD178F7007CF834 /* GameScene.swift in Sources */,
+				453756161CD5570600E921B0 /* Game1.swift in Sources */,
 				500073EB1CD178F7007CF834 /* GameViewController.swift in Sources */,
 				500073E51CD178F7007CF834 /* AppDelegate.swift in Sources */,
+				453756181CD5570600E921B0 /* Game3.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -397,6 +409,7 @@
 				500074041CD178F7007CF834 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		500074051CD178F7007CF834 /* Build configuration list for PBXNativeTarget "DogeSitter2Tests" */ = {
 			isa = XCConfigurationList;
@@ -405,6 +418,7 @@
 				500074071CD178F7007CF834 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
