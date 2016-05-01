@@ -244,7 +244,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func createScoreTable() {
         if ((curLevel - 1) > (userDefaults.valueForKey("highScore") as! Int)) {
-            userDefaults.setValue(Int(curLevel), forKey: "highScore")
+            userDefaults.setValue(Int(curLevel - 1), forKey: "highScore")
         }
         
         scoreTable = SKSpriteNode(color: SKColor.whiteColor(), size: CGSize(width: self.frame.width - 50, height: 300))
@@ -487,8 +487,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             
             ballSprite.physicsBody = SKPhysicsBody(circleOfRadius: ballSprite.size.height/2)
             ballSprite.physicsBody?.categoryBitMask = PhysicsCategory.toy
-            ballSprite.physicsBody?.collisionBitMask = PhysicsCategory.doge | PhysicsCategory.side | PhysicsCategory.ground | PhysicsCategory.toy
-            ballSprite.physicsBody?.contactTestBitMask = PhysicsCategory.doge | PhysicsCategory.side | PhysicsCategory.ground | PhysicsCategory.toy
+            ballSprite.physicsBody?.collisionBitMask = PhysicsCategory.doge | PhysicsCategory.side | PhysicsCategory.ground
+            ballSprite.physicsBody?.contactTestBitMask = PhysicsCategory.doge | PhysicsCategory.side | PhysicsCategory.ground
             
             self.addChild(ballSprite)
             
