@@ -21,11 +21,20 @@ class GameOverViewController: UIViewController {
 //        let highScoreDefault = NSUserDefaults.standardUserDefaults()
         let scoreDefault = NSUserDefaults.standardUserDefaults()
         
+//        print(UIFont.familyNames())
+//        for name in UIFont.familyNames() {
+//            print(name)
+//            if let nameString = name as? String
+//            {
+//                print(UIFont.fontNamesForFamilyName(nameString))
+//            }
+//        }
+        
         let score = scoreDefault.valueForKey("tempscore") as! NSInteger
         
         gameOverLabel = UILabel(frame: CGRect(x: 0, y: 0, width: screenWidth, height: screenHeight * 0.25))
         gameOverLabel.text = "Game Over"
-        gameOverLabel.font = UIFont(name: "HelveticaNeue", size: 50.0)
+        gameOverLabel.font = UIFont(name: "ComicSans MS", size: 50.0)
         gameOverLabel.textAlignment = .Center
         gameOverLabel.center = CGPoint(x: screenWidth / 2.0, y: screenHeight * 0.25)
         self.view.addSubview(gameOverLabel)
