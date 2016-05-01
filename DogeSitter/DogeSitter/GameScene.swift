@@ -177,7 +177,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         rightWall.physicsBody?.affectedByGravity = false
         rightWall.physicsBody?.dynamic = false
         rightWall.name = "rightBound"
-
         
         self.addChild(ground)
         self.addChild(leftWall)
@@ -191,7 +190,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     func randomGame() {
         let previousLevel = userDefaults.valueForKey("currentLevel") as! Int
         userDefaults.setValue(Int(previousLevel + 1), forKey: "currentLevel")
-        
         let randomGameID = arc4random_uniform(3)
         switch randomGameID {
         case 0:
@@ -565,9 +563,5 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.addChild(DogeButton5)
 
     }
-    
-    
-    
-    
     
 }
