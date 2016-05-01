@@ -100,6 +100,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var buttonWidth = CGFloat()
     var buttonHeight = CGFloat()
     
+    var catScore = 0
+    var catScoreLabel = SKLabelNode()
+    var catDesiredScore = 10
+    var catDesiredScoreLabel = SKLabelNode()
+    
     
     
     
@@ -185,19 +190,21 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     func randomGame() {
         curLevel += 1
         let randomGameID = arc4random_uniform(3)
-        switch randomGameID {
-        case 0:
-            curGame = 0
-            startBounceGame()
-        case 1:
-            curGame = 1
-            startFrisbeeGame()
-        case 2:
-            curGame = 2
-            startCatGame()
-        default:
-            startFrisbeeGame()
-        }
+//        switch randomGameID {
+//        case 0:
+//            curGame = 0
+//            startBounceGame()
+//        case 1:
+//            curGame = 1
+//            startFrisbeeGame()
+//        case 2:
+//            curGame = 2
+//            startCatGame()
+//        default:
+//            startFrisbeeGame()
+//        }
+        curGame = 2
+        startCatGame()
     }
     
     
@@ -205,6 +212,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         if seconds > 0 {
             seconds -= 1
             timerLabel.text = "\(seconds)"
+            if (catScore == catDesiredScore) {
+                catScore = 0
+                newGame()
+            }
         }
         
         if seconds == 0 {
@@ -218,7 +229,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                     newGame()
                 }
             } else if (curGame == 2) {
-                if (score < desiredScore) {
+                if (catScore < catDesiredScore) {
                     gameOver = true
                     createScoreTable()
                 } else {
@@ -282,8 +293,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             
             if (curGame == 2) {
                 if touch.locationInNode(self).y > buttonHeight {
-                    //end game
-                    print("game over because not bottom button")
+                    gameTimer.invalidate()
+                    gameOver = true
+                    createScoreTable()
                 }
                 
                 let positionInScene = touch.locationInNode(self)
@@ -291,9 +303,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 
                 if let name = touchedNode.name {
                     if ((name == "Grumpy1") || (name == "Grumpy2") || (name == "Grumpy3") || (name == "Grumpy4") || (name == "Grumpy5") || (name == "Grumpy6") || (name == "Grumpy7") || (name == "Grumpy8") || (name == "Grumpy9") || (name == "Grumpy10") || (name == "Grumpy11") || (name == "Grumpy12") || (name == "Grumpy13") || (name == "Grumpy14") || (name == "Grumpy15")) {
-                        print("grumpy touched")
+                        gameTimer.invalidate()
+                        gameOver = true
+                        createScoreTable()
                     }
                 }
+                
+                catScore += 1
+                catScoreLabel.text = "\(catScore)"
                 
                 GrumpyButton1.position.y = GrumpyButton1.position.y - buttonHeight
                 GrumpyButton2.position.y = GrumpyButton2.position.y - buttonHeight
@@ -408,7 +425,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 }
             } else if (curGame == 1) {
                 if ((firstObject.node?.name == frisbeeSprite.name && secondObject.node?.name == dogeSpriteForFrisbeeGame.name) || (firstObject.node?.name == dogeSpriteForFrisbeeGame.name && secondObject.node?.name == frisbeeSprite.name)) {
-                    //                print("contact")
                     score += 1
                     scoreLabel.text = "\(score)"
                 }
@@ -485,7 +501,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     func startFrisbeeGame() {
         self.physicsWorld.contactDelegate = self
         
-        ceilingSprite = SKSpriteNode(imageNamed: "dogeStart")
+        ceilingSprite = SKSpriteNode(imageNamed: "Transparent")
         ceilingSprite.size = CGSize(width: self.frame.width, height: 1)
         ceilingSprite.position = CGPoint(x: self.frame.width / 2, y: self.frame.height)
         ceilingSprite.physicsBody = SKPhysicsBody(rectangleOfSize: ceilingSprite.size)
@@ -574,18 +590,22 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         buttonWidth = self.frame.width / 4
         buttonHeight = self.frame.height / 4
         
-        score = 0
-
-        desiredScore = curLevel + 10
+        catScore = 0
+        catDesiredScore = curLevel + 10
         
-        desiredScoreLabel = SKLabelNode(fontNamed: "Arial Rounded MT Bold")
-        desiredScoreLabel.fontColor = UIColor.magentaColor()
-        desiredScoreLabel.text = "Need: \(desiredScore)"
-        desiredScoreLabel.position = CGPoint(x: self.frame.width / 2, y: self.frame.height - 50)
-        desiredScoreLabel.zPosition = 4
-        self.addChild(desiredScoreLabel)
+        catScoreLabel = SKLabelNode(fontNamed: "Arial Rounded MT Bold")
+        catScoreLabel.fontColor = UIColor.magentaColor()
+        catScoreLabel.text = "\(score)"
+        catScoreLabel.position = CGPoint(x: self.frame.width - 30, y: self.frame.height - 50)
+        catScoreLabel.zPosition = 4
+        self.addChild(catScoreLabel)
         
-        score = 0 //should this change later on?
+        catDesiredScoreLabel = SKLabelNode(fontNamed: "Arial Rounded MT Bold")
+        catDesiredScoreLabel.fontColor = UIColor.magentaColor()
+        catDesiredScoreLabel.text = "Need: \(catDesiredScore)"
+        catDesiredScoreLabel.position = CGPoint(x: self.frame.width / 2, y: self.frame.height - 50)
+        catDesiredScoreLabel.zPosition = 4
+        self.addChild(catDesiredScoreLabel)
 
         GrumpyButton1 = SKSpriteNode(imageNamed: "GrumpyCat")
         GrumpyButton1.size = CGSize(width: buttonWidth, height: buttonHeight)
