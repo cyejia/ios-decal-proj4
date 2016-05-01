@@ -23,13 +23,14 @@ doge.
       The grid will move down as the player taps more Doges. The objective is 
       to tap a certain amount of Doges before time is up.
 
-* Show score and keep track of high scores
+* Your score is reflected by how many mini game rounds you finish
+* Show score and keep track of high score
 
 ## Control Flow
 * The user will choose "New Game" and then will move to the game screen.
 * The first game will begin, and the user will play for a limited time
 * After the initial time expires, another minigame will be rotated to the 
-  screen
+  screen.
 * This rotation continues, with each cycle making each game more difficult
 * The player loses if at any point if they lose in any of the minigames:
     1. A ball falls in minigame 1.
@@ -40,22 +41,18 @@ doge.
     1. More balls fall from the top of the screen
     2. Doge starts moving so the player must plan the frisbee throw accordingly
     3. Less time to pick the Doge tile
-* When player loses, an alert pops up prompting the player to give a name for 
-  the high score board and then the screen goes to score/high score view
+* When player loses, an window pops up showing the highscore, your most recent
+  game score, and a play again button.
 
 ## Implementation
 
 ### Model
-* Game1.swift
-* Game2.swift
-* Game3.swift
+* GameScene.swift
 
 ### View
 * StartNewGameView
 * GamesView
-* ScoreBoardView
 
 ### Controller
 * StartNewGameViewController
 * GamesViewController
-* ScoreBoardViewController
