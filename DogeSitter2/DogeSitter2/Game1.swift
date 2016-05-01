@@ -15,8 +15,8 @@ import CoreMotion
 struct PhysicsCategory {
     static let doge : UInt32 = 0x1 << 1
     static let ball : UInt32 = 0x1 << 2
-    static let ground : UInt32 = 0x1 << 3
-    static let side : UInt32 = 0x1 << 4
+    static let side : UInt32 = 0x1 << 3
+    static let ground : UInt32 = 0x1 << 4
 }
 
 class Game1: SKScene, SKPhysicsContactDelegate {
