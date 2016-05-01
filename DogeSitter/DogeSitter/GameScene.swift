@@ -190,21 +190,19 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     func randomGame() {
         curLevel += 1
         let randomGameID = arc4random_uniform(3)
-//        switch randomGameID {
-//        case 0:
-//            curGame = 0
-//            startBounceGame()
-//        case 1:
-//            curGame = 1
-//            startFrisbeeGame()
-//        case 2:
-//            curGame = 2
-//            startCatGame()
-//        default:
-//            startFrisbeeGame()
-//        }
-        curGame = 2
-        startCatGame()
+        switch randomGameID {
+        case 0:
+            curGame = 0
+            startBounceGame()
+        case 1:
+            curGame = 1
+            startFrisbeeGame()
+        case 2:
+            curGame = 2
+            startCatGame()
+        default:
+            startFrisbeeGame()
+        }
     }
     
     
@@ -214,6 +212,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             timerLabel.text = "\(seconds)"
             if (catScore == catDesiredScore) {
                 catScore = 0
+                newGame()
+            }
+            if ((curGame == 1) && (score == desiredScore)) {
                 newGame()
             }
         }
