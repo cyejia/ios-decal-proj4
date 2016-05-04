@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Pau-Ze-IQX">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Pau-Ze-IQX">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -62,53 +62,54 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dogeStart" translatesAutoresizingMaskIntoConstraints="NO" id="IF5-qG-YFf">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ftY-0F-5jY">
-                                <rect key="frame" x="172" y="200" width="71" height="35"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="71" id="jLh-3D-Kpm"/>
-                                    <constraint firstAttribute="height" constant="35" id="okC-KP-Z0F"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="ComicSansMS" family="Comic Sans MS" pointSize="25"/>
-                                <state key="normal" title="Start">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <segue destination="BV1-FR-VrT" kind="presentation" id="455-5P-96g"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lwm-Ga-12h">
-                                <rect key="frame" x="127" y="243" width="160" height="41"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="160" id="G6l-gc-5wg"/>
-                                    <constraint firstAttribute="height" constant="41" id="uoH-st-OPc"/>
-                                </constraints>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DogeSitter" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ah5-uV-1g4">
+                                <rect key="frame" x="20" y="164" width="374" height="70"/>
+                                <fontDescription key="fontDescription" name="ComicSansMS" family="Comic Sans MS" pointSize="50"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lks-Jc-bFY">
+                                <rect key="frame" x="20" y="303" width="374" height="47"/>
                                 <fontDescription key="fontDescription" name="ComicSansMS" family="Comic Sans MS" pointSize="25"/>
                                 <state key="normal" title="Instructions">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="TrB-Ei-DDM" kind="show" id="w0B-sI-VfE"/>
+                                    <segue destination="TrB-Ei-DDM" kind="show" id="fnx-eP-w8E"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DogeSitter" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gD4-Wh-9Pb">
-                                <rect key="frame" x="20" y="72" width="374" height="103"/>
-                                <fontDescription key="fontDescription" name="ComicSansMS" family="Comic Sans MS" pointSize="50"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ucF-Sw-hQn">
+                                <rect key="frame" x="20" y="259" width="374" height="47"/>
+                                <fontDescription key="fontDescription" name="ComicSansMS" family="Comic Sans MS" pointSize="25"/>
+                                <state key="normal" title="Start">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="BV1-FR-VrT" kind="presentation" id="1vs-6N-gas"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="ftY-0F-5jY" firstAttribute="centerX" secondItem="Lwm-Ga-12h" secondAttribute="centerX" id="0VS-q7-gVg"/>
-                            <constraint firstItem="R2B-5i-aTQ" firstAttribute="top" secondItem="Lwm-Ga-12h" secondAttribute="bottom" constant="452" id="3Bo-8p-qZz"/>
-                            <constraint firstItem="gD4-Wh-9Pb" firstAttribute="top" secondItem="Mn6-pb-KOZ" secondAttribute="bottom" constant="8" symbolic="YES" id="7am-A0-F2V"/>
-                            <constraint firstItem="gD4-Wh-9Pb" firstAttribute="leading" secondItem="PCx-Cv-5yA" secondAttribute="leadingMargin" id="IVS-7U-4hL"/>
-                            <constraint firstItem="gD4-Wh-9Pb" firstAttribute="centerX" secondItem="ftY-0F-5jY" secondAttribute="centerX" id="JTv-JW-viy"/>
-                            <constraint firstItem="IF5-qG-YFf" firstAttribute="leading" secondItem="PCx-Cv-5yA" secondAttribute="leading" id="XE7-BJ-COO"/>
-                            <constraint firstItem="Lwm-Ga-12h" firstAttribute="top" secondItem="ftY-0F-5jY" secondAttribute="bottom" constant="8" symbolic="YES" id="c8I-HY-Q9o"/>
-                            <constraint firstItem="IF5-qG-YFf" firstAttribute="centerX" secondItem="Lwm-Ga-12h" secondAttribute="centerX" id="oVs-ye-FCd"/>
-                            <constraint firstItem="ftY-0F-5jY" firstAttribute="top" secondItem="gD4-Wh-9Pb" secondAttribute="bottom" constant="25" id="s3Q-ga-Yb7"/>
-                            <constraint firstItem="IF5-qG-YFf" firstAttribute="bottom" secondItem="R2B-5i-aTQ" secondAttribute="top" id="zfx-qI-EyQ"/>
+                            <constraint firstItem="R2B-5i-aTQ" firstAttribute="top" secondItem="ah5-uV-1g4" secondAttribute="bottom" constant="502" id="2TW-dr-492"/>
+                            <constraint firstItem="R2B-5i-aTQ" firstAttribute="top" secondItem="ucF-Sw-hQn" secondAttribute="bottom" constant="430" id="56H-Kf-p0X"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ucF-Sw-hQn" secondAttribute="trailing" id="6qN-SY-4dT"/>
+                            <constraint firstItem="lks-Jc-bFY" firstAttribute="top" secondItem="Mn6-pb-KOZ" secondAttribute="bottom" constant="239" id="D81-eu-Ejr"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="IF5-qG-YFf" secondAttribute="trailing" constant="-20" id="HwU-Dm-9WT"/>
+                            <constraint firstItem="IF5-qG-YFf" firstAttribute="top" secondItem="ah5-uV-1g4" secondAttribute="bottom" constant="-234" id="KDO-6k-fnh"/>
+                            <constraint firstItem="R2B-5i-aTQ" firstAttribute="top" secondItem="lks-Jc-bFY" secondAttribute="bottom" constant="386" id="Ogh-Xj-t3w"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="ucF-Sw-hQn" secondAttribute="leading" id="RV0-JQ-fqi"/>
+                            <constraint firstItem="IF5-qG-YFf" firstAttribute="centerY" secondItem="PCx-Cv-5yA" secondAttribute="centerY" id="SuY-Ta-wBc"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ah5-uV-1g4" secondAttribute="trailing" id="TKJ-vB-XBo"/>
+                            <constraint firstItem="ucF-Sw-hQn" firstAttribute="top" secondItem="Mn6-pb-KOZ" secondAttribute="bottom" constant="195" id="Vt1-76-4uT"/>
+                            <constraint firstItem="IF5-qG-YFf" firstAttribute="leading" secondItem="PCx-Cv-5yA" secondAttribute="leadingMargin" constant="-20" id="ZzM-2M-Qct"/>
+                            <constraint firstItem="R2B-5i-aTQ" firstAttribute="top" secondItem="IF5-qG-YFf" secondAttribute="bottom" id="d8b-X6-lhj"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="ah5-uV-1g4" secondAttribute="leading" id="ik2-og-6cl"/>
+                            <constraint firstItem="ah5-uV-1g4" firstAttribute="top" secondItem="Mn6-pb-KOZ" secondAttribute="bottom" constant="100" id="izQ-AA-GJh"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="lks-Jc-bFY" secondAttribute="trailing" id="nJ5-84-qCD"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="lks-Jc-bFY" secondAttribute="leading" id="qBY-eK-sY1"/>
+                            <constraint firstItem="IF5-qG-YFf" firstAttribute="top" secondItem="Mn6-pb-KOZ" secondAttribute="bottom" constant="-64" id="yqP-B2-60B"/>
+                            <constraint firstItem="IF5-qG-YFf" firstAttribute="centerX" secondItem="PCx-Cv-5yA" secondAttribute="centerX" id="zPN-Lk-cgN"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="JDv-X0-fSu"/>
